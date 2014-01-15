@@ -1,0 +1,25 @@
+<% action = (@board.persisted? ? edit_api_board_url(@board) : new_api_board_url) %>
+<% method = (@board.persisted? ? "PUT" : "POST") %>
+<% message = (@board.persisted? ? "Save Changes" : "Create Board") %>
+
+<form action="<%= action %>" method="POST">
+  <input 
+    name="_method"
+    type="hidden"
+    value="<%= method %>">
+  <input 
+    name="authenticity_token"
+    type="hidden"
+    value="<%= form_authenticity_token %>"> 
+    
+  <label for="board_name">Name*</label>
+  <input id="board_name" name="board[name]" type="text">
+  <br>
+  
+  <label for="board_desc">Description</label>
+  <input id="board_name" name="board[name]" type="text">
+  <br>
+  
+  <label for="board_name">Name*</label>
+
+</form>
