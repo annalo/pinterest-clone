@@ -1,0 +1,51 @@
+<% action = (@board.persisted? ? edit_api_board_url(@board) : new_api_board_url) %>
+<% formaction = (@board.persisted? ? api_board_show_url(@board) : root_url) %>
+<% method = (@board.persisted? ? "PUT" : "POST") %>
+<% message = (@board.persisted? ? "Save Changes" : "Create Board") %>
+
+<form action="<%= action %>" method="POST">
+  <input 
+    name="_method"
+    type="hidden"
+    value="<%= method %>">
+  <input 
+    name="authenticity_token"
+    type="hidden"
+    value="<%= form_authenticity_token %>"> 
+    
+  <label for="board_name">Name*</label>
+  <input 
+    id="board_name" 
+    name="board[name]" 
+    type="text">
+  <br>
+  
+  <label for="board_desc">Description</label>
+  <textarea 
+    id="board_desc" 
+    name="board[description]">
+  </textarea>
+  <br>
+
+  <label for="board_category">Category</label>
+  <select>
+  
+    <option value=""></option>
+  </select>
+  
+  <label for="board_private">Secret</label>
+  <input 
+    type="radio" 
+    name="board[private]" 
+    value="false"
+    checked>No
+  <br>
+  <input 
+    type="radio" 
+    name="board[private]" 
+    value="true">Yes
+  <br>
+
+  <button formaction="<%= formaction %>">Cancel</button>
+  <input type="submit" value="<%= message %>">
+</form>

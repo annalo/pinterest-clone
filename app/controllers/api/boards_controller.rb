@@ -4,7 +4,7 @@ class Api::BoardsController < ApplicationController
   def create
     @board = current_user.boards.new(params[:board])
     if @board.save
-      redirect_to board_url(@board)
+      redirect_to api_board_url(@board)
     else
       render :json => @board.errors.full_messages
     end
@@ -13,7 +13,7 @@ class Api::BoardsController < ApplicationController
   def edit
     @board = Board.find(params[:id])
     if @board.update_attributes(params[:board])
-      redirect_to board_url(@board)
+      redirect_to api_board_url(@board)
     else
       render :json => @board.errors.full_messages
     end
