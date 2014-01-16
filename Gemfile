@@ -16,6 +16,8 @@ end
 gem 'jquery-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'pg'
+gem 'rails_12factor'
+gem 'newrelic_rpm'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
