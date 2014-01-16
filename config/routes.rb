@@ -2,11 +2,11 @@ PinterestClone::Application.routes.draw do
   resources :users, :only => [:create, :new, :show]
   resource :session, :only => [:create, :destroy, :new]
   
-  namespace :api do
+  namespace :api, :defaults => { :format => :json } do
     resources :boards
   end
   
-  root :to => "static_pages#home"
+  root :to => "root#root"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

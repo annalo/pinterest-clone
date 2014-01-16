@@ -1,10 +1,24 @@
 class Api::BoardsController < ApplicationController
   before_filter :require_current_user!
+  def index
+    @boards = current_user.boards
+    render "index"
+  end
+  
+  def show
+    @board = Board.find(params[:id])
+    render "show"
+  end
+  
+  def new
+    @categories = Category.all
+    @board = current_user.boards.new
+  end
   
   def create
     @board = current_user.boards.new(params[:board])
     if @board.save
-      redirect_to api_board_url(@board)
+      render "show"
     else
       render :json => @board.errors.full_messages
     end
@@ -22,15 +36,6 @@ class Api::BoardsController < ApplicationController
     else
       render :json => @board.errors.full_messages
     end
-  end
-  
-  def new
-    @categories = Category.all
-    @board = current_user.boards.new
-  end
-  
-  def show
-    @board = Board.find(params[:id])
   end
   
   def destroy

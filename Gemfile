@@ -13,14 +13,17 @@ group :development do
   gem 'pry-rails'
 end
 
-gem 'jquery-rails'
+gem 'aws-sdk'
+gem 'backbone-on-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'ejs'
+gem 'figaro'
+gem 'jbuilder'
+gem 'jquery-rails'
+gem 'newrelic_rpm'
+gem 'paperclip'
 gem 'pg'
 gem 'rails_12factor'
-gem 'newrelic_rpm'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
 
 # Deploy with Capistrano
 # gem 'capistrano'
