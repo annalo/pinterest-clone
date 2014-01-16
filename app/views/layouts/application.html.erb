@@ -8,14 +8,62 @@
 </head>
 <body>
   
-  <% if !current_user.nil? %>
-    <ul>
-      <li>Logged in as: <%= current_user.fname %></li>
-      <li><%= button_to "Log Out", session_url, :method => :delete %></li>
+<% if !current_user.nil? %>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">   
+    <ul class="nav navbar-nav">        
+      <li><div class="btn-group">
+        <button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+          <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+          <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+          <li class="divider"></li>
+          <li><a href="#"><i class="i"></i> Make admin</a></li>
+        </ul>
+      </div></li>
     </ul>
-  <% end %>
+    
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="What are you into?">
+      </div>
+      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+    </form>
+    
+    <a class="navbar-brand text-center" href="/">PinterestClone</a>
+    
+    <ul class="nav navbar-nav navbar-right">      
+      <li><div class="btn-group">
+        <button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-plus"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#"><span class="glyphicon glyphicon-arrow-up"></span> Upload a Pin</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-globe"></span> Add from a Website</a></li>
+          <li><a href="#"><i class="icon-ban-circle"></i> Create a Board</a></li>
+          <li class="divider"></li>
+          <li><a href="#"><i class="i"></i> message??</a></li>
+        </ul>
+      </div></li>
+      <li><div class="btn-group">
+        <button type="button" class="btn btn-default navbar-btn dropdown-toggle user-button" data-toggle="dropdown"><span class=""></span> <%= current_user.fname %></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Your Profile & Pins</a></li>
+          <li><a href="#">Settings</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Find Friends</a></li>
+          <li><a href="#">Follow Boards</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Visit Help Center</a></li>
+          <li class="divider"></li>
+          <li><%= link_to "Log Out", session_url, :method => :delete %></li>
+        </ul>
+      </div></li>
+    </ul>
+  </nav>
+<% end %>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
