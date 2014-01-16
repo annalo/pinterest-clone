@@ -1,5 +1,5 @@
-<% action = (@board.persisted? ? edit_api_board_url(@board) : new_api_board_url) %>
-<% formaction = (@board.persisted? ? api_board_show_url(@board) : root_url) %>
+<% action = (@board.persisted? ? api_board_url(@board) : api_boards_url) %>
+<% formaction = (@board.persisted? ? api_board_url(@board) : root_url) %>
 <% method = (@board.persisted? ? "PUT" : "POST") %>
 <% message = (@board.persisted? ? "Save Changes" : "Create Board") %>
 
@@ -17,33 +17,41 @@
   <input 
     id="board_name" 
     name="board[name]" 
-    type="text">
+    type="text"
+    value="<%= @board.name %>">
   <br>
   
   <label for="board_desc">Description</label>
   <textarea 
     id="board_desc" 
-    name="board[description]">
-  </textarea>
+    name="board[description]"4><%= @board.description unless @board.description.nil? %></textarea>
   <br>
 
   <label for="board_category">Category</label>
-  <select>
-  
-    <option value=""></option>
+  <select name="board[category_id]">
+    <option>Choose a category</option>
+    <% @categories.each do |category| %>
+      <option 
+        value="<%= category.id %>"
+        <%= "selected" if @board.category_id == category.id %>>
+        <%= category.name %>
+      </option>
+    <% end %>
   </select>
+  <br>
   
   <label for="board_private">Secret</label>
   <input 
     type="radio" 
     name="board[private]" 
     value="false"
-    checked>No
+    <%= "checked" if @board.private.nil? || @board.private == false %>>No
   <br>
   <input 
     type="radio" 
     name="board[private]" 
-    value="true">Yes
+    value="true"
+    <%= "checked" if @board.private == true %>>Yes
   <br>
 
   <button formaction="<%= formaction %>">Cancel</button>

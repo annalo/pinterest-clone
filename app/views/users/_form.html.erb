@@ -11,7 +11,21 @@
      name="authenticity_token"
      type="hidden"
      value="<%= form_authenticity_token %>">
-
+  
+  <label for="user_fname">First Name</label>
+  <input
+    id="user_fname"
+    name="user[fname]"
+    type="text">
+  <br>
+  
+  <label for="user_lname">Last Name</label>
+  <input
+     id="user_lname"
+     name="user[lname]"
+     type="text">
+  <br>
+  
   <label for="user_email">Email</label>
   <input
      id="user_email"

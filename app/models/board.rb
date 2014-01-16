@@ -1,7 +1,8 @@
 class Board < ActiveRecord::Base
-  attr_accessible :name, :description, :category, :private, :user_id
+  attr_accessible :name, :description, :category_id, :private, :user_id
   
-  validates :name, :private, :user_id, :presence => true
+  validates :name, :user_id, :presence => true
+  validates_inclusion_of :private, :in => [true, false]
   
   belongs_to :user
   belongs_to :category

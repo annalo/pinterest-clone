@@ -11,6 +11,11 @@ class Api::BoardsController < ApplicationController
   end
   
   def edit
+    @categories = Category.all
+    @board = Board.find(params[:id])
+  end
+  
+  def update
     @board = Board.find(params[:id])
     if @board.update_attributes(params[:board])
       redirect_to api_board_url(@board)
@@ -20,10 +25,17 @@ class Api::BoardsController < ApplicationController
   end
   
   def new
+    @categories = Category.all
     @board = current_user.boards.new
   end
   
   def show
     @board = Board.find(params[:id])
+  end
+  
+  def destroy
+    @board = Board.find(params[:id])
+    @board.destroy
+    redirect_to root_url
   end
 end
