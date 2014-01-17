@@ -1,1 +1,1 @@
-json.(@board, :name, :description, :category_id, :private, :user_id)
+json.(@board, :id, :name, :description, :category_id, :private, :user_id)

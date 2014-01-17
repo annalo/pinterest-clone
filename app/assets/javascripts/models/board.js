@@ -1,1 +1,3 @@
-PinterestClone.Models.Board = Backbone.Model.extend({});
+PinterestClone.Models.Board = Backbone.Model.extend({
+  urlRoot: "/api/boards"
+});
