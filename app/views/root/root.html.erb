@@ -1,7 +1,7 @@
 <div id="content">
   <% if current_user.nil? %>
-    <%= button_to "Sign Up", new_user_url, :method => :get %>
-    <br>
-    Already have an account? <%= link_to "Log In", new_session_url %>
+  
+  <%= render "home" %>
+  
   <% end %>
 </div>
