@@ -1,1 +1,31 @@
 this is where pins go!
+
+<div id="container">
+  <div class="item">
+    <img src="http://placekitten.com/200/200">
+  </div>
+  <div class="item">
+    <img src="http://placekitten.com/250/200">
+  </div>
+  <div class="item">
+    <img src="http://placekitten.com/200/200">
+  </div>
+  <div class="item">
+    <img src="http://placekitten.com/230/200">
+  </div>
+  <div class="item">
+    <img src="http://placekitten.com/200/200">
+  </div>
+</div>
+
+
+<script>
+var $container = $('#container');
+
+$container.imagesLoaded(function() {
+  $container.masonry({
+    columnWidth: 200,
+    itemSelector : '.item'
+  });
+});
+</script>

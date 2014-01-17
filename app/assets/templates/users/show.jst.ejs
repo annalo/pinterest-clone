@@ -1,7 +1,30 @@
-<h1><%= user.escape("fname") %></h1>
+  
+<div class="row" style="margin: 0 auto">
+  <div class="profile-header-wrapper">
+    <div class="user-profile-header">
+      <h1><%= user.escape("fname") %></h1>
+    </div>
+</div>
+</div>
 
-<% boards.each(function(board) { %>
-  <li>
-  	<a href="#/boards/<%= board.id %>"><%= board.escape("name") %></a>
-  </li>
-<% }); %>
+<nav 
+  class="navbar navbar-default navbar-static-top" 
+  role="navigation"
+  style="margin-bottom: 10px">
+</nav>
+
+<div class="row">
+  <div class="board-wrapper">
+    Create a board
+  </div>
+  
+  <% boards.each(function(board) { %>
+    <div class="board-wrapper">
+      <%= board.escape("name") %>
+    </div>
+  <% }); %>
+  
+  <div class="board-wrapper">
+    Create a secret board
+  </div>
+</div>
