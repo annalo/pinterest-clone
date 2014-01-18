@@ -23,3 +23,4 @@
 //= require_tree .
 //= require bootstrap
 //= require jquery.masonry.min
+//= require jquery.serializeJSON.min

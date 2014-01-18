@@ -1,3 +1,36 @@
 // Place all the styles related to the boards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#board-container {
+  width: 1250px;
+  margin: 0 auto;
+}
+
+.row {
+  width: 1250px;
+  margin-left: 2px;
+}
+
+.board-wrapper {
+  position: relative;
+  width: 236px;
+  height: 284px;
+  display: inline-block;
+  color: #555555;
+  background: #ffffff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  outline: none;
+  border-radius: 3px;
+  margin: 5px;
+}
+
+
+// navbar header hover color
+.navbar .user-header ul {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    background-color: white;
+  }
+}

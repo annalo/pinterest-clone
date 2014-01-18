@@ -16,16 +16,59 @@
 @import "bootstrap/glyphicons";
 @import "masonry";
 
-body {
-  padding-top: 50px;
-  background-color: #e3e3e3;
-  color: #211922;
-  font: 'Helvetica';
+html {
+  font-family: sans-serif;
 }
 
-.navbar {
-  padding-left: 125px;
-  padding-right: 140px;
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 70px;
+  background-color: #e3e3e3;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+textarea {
+  font-family: inherit;
+}
+
+select optgroup {
+  font-family: inherit;
+}
+
+.navbar-fixed-top {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1),0 1px 0 0 rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateZ(0);
+  background: #ffffff;
+  height: 44px;
+  position: fixed;
+  z-index: 670;
+  padding-left: 100px;
+  padding-right: 110px;
+}
+
+.navbar-fixed-top .btn {
+  background-color: #f7f7f7;
+  border: 1px solid #cccccc;
+  color: #5f5f5f;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 1px #ffffff;
+  white-space: nowrap;
+  
+  &:hover,
+  &:focus {
+    color: white;
+    background-color: #C92228;
+    text-decoration: none;
+  }
 }
 
 .user-button {
@@ -59,67 +102,4 @@ input.hidden {
 #container {
   width: 1250px;
   margin: 0 auto;
-}
-
-#board-container {
-  width: 1250px;
-  margin: 0 auto;
-}
-
-.row {
-  width: 1250px;
-  margin-left: 2px;
-}
-
-.board-wrapper {
-  position: relative;
-  width: 236px;
-  height: 284px;
-  display: inline-block;
-  color: #555555;
-  background: #ffffff;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
-  outline: none;
-  border-radius: 3px;
-  margin: 5px;
-}
-
-.profile-header-wrapper {
-  width: 736px;
-  margin: 0 auto;
-  float: none;
-}
-
-.user-profile-header {
-  border-radius: 4px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
-  background: #ffffff;
-  color: #333333;
-  float: none;
-  height: 153px;
-  position: relative;
-  width: 736px;
-  display: block;
-  margin-bottom: 15px;
-}
-
-.navbar-static-top {
-  background-color: #ececec;
-  background: -webkit-linear-gradient( #f3f3f3, #e5e5e5);
-  background: linear-gradient( #f3f3f3, #e5e5e5);
-  border-radius: 4px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
-  overflow: hidden;
-  border-left: 1px solid #d4d4d4;
-  border-left: 1px solid rgba(0, 0, 0, 0.17);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(0, 0, 0, 0.17);
-  border-left: 1px solid #d4d4d4;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  clear: both;
-  color: #333333;
-  height: 44px;
-  line-height: 44px;
-  max-width: 10000px;
-  position: relative;
 }

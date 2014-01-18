@@ -18,13 +18,11 @@ ActiveRecord::Schema.define(:version => 20140115231918) do
     t.string   "description"
     t.integer  "category_id"
     t.integer  "user_id",     :null => false
-    t.boolean  "private",     :null => false
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
   add_index "boards", ["category_id"], :name => "index_boards_on_category_id"
-  add_index "boards", ["private"], :name => "index_boards_on_private"
   add_index "boards", ["user_id"], :name => "index_boards_on_user_id"
 
   create_table "categories", :force => true do |t|

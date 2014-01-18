@@ -10,17 +10,12 @@ class Api::BoardsController < ApplicationController
     render "show"
   end
   
-  def new
-    @categories = Category.all
-    @board = current_user.boards.new
-  end
-  
   def create
     @board = current_user.boards.new(params[:board])
     if @board.save
       render "show"
     else
-      render :json => @board.errors.full_messages
+      render :json => @board.errors.full_messages, :status => 422
     end
   end
   

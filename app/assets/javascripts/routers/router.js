@@ -6,8 +6,10 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "home",
-    "users/:id": "showUser",
-    "boards/:id": "showBoard"
+    "boards": "indexBoards",
+    "boards/new": "newBoard",
+    "users/:id(/:type)": "showUser",
+    "users/:user_id/boards/:id": "showBoard"
   },
   
   home: function() {
@@ -15,25 +17,43 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
   
-  showUser: function(id) {
+  showUser: function(id, type) {
     var user = new PinterestClone.Models.User({ id: id });
     var view = new PinterestClone.Views.UserShow({ 
+      type: type,
       model: user, 
       collection: this.boards
     });
     this._swapView(view);
+    // this.indexBoards();
   },
   
-  newBoard: function() {
-    
-  },
+  // indexBoards: function() {
+  //   var view = new PinterestClone.Views.BoardsIndex({ collection: this.boards });
+  //   $("#views").append(view.render().$el);
+  // },
   
   showBoard: function(id) {
     var board = this.boards.get(id);
     var view = new PinterestClone.Views.BoardShow({ model: board });
     this._swapView(view);
   },
+    
+  newBoard: function() {
+    var newBoard = new PinterestClone.Models.Board();    
+    var view = new PinterestClone.Views.BoardForm({ 
+      model: newBoard,
+      collection: this.boards
+    });    
+    this._swapView(view);
+  },
   
+  editBoard: function() {
+    var board = this.boards.get(id);
+    var view = new PinterestClone.Views.BoardForm({ model: board });
+    this._swapView(view);
+  },
+
   _swapView: function(view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;

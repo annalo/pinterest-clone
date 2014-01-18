@@ -1,0 +1,45 @@
+<% var header = (board.id === undefined) ? "Create a Board" : "Edit Board" %>
+<% var message = (board.id === undefined) ? "Create Board" : "Save Changes" %>
+
+<h1 align="center"><%= header %></h1>
+
+<div class="row">
+  <div class="col-xs-1 col-xs-offset-4">
+    
+    <form role="form">
+      <label for="board_name">Name*</label>
+  </div>
+    
+  <div class="col-xs-3">
+      <input 
+        class="form-control"
+        id="board_name" 
+        name="board[name]" 
+        type="text"
+        value="<%= board.escape("name") %>"
+        placeholder="ex: For the Home">
+  </div>
+</div>
+<p>
+<div class="row">
+  <div class="col-xs-1 col-xs-offset-4">
+      <label for="board_desc">Description</label>
+  </div>
+  
+  <div class="col-xs-3">
+      <textarea 
+        class="form-control"
+        id="board_desc" 
+        name="board[description]"
+        placeholder="Add a short description to your board"><%= board.escape("description") %></textarea>
+      <br>
+        
+      <div class="form-actions">
+        <input type="submit" class="hidden">
+        <button formaction="/" class="btn btn-defaul">Cancel</button>
+        <button type="submit" class="btn btn-primary"><%= message %></button>
+      </div>
+  
+    </form>
+  </div>
+</div>

@@ -14,7 +14,7 @@ window.PinterestClone = {
         Backbone.history.start();
       },
       
-      error: function() { console.log("No user logged in.") }
+      error: function() { console.log("No user logged in/fetch failed.") }
     });
   }
 };

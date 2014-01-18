@@ -85,7 +85,9 @@
           <span class=""></span> <%= current_user.fname %>
         </button>
         <ul class="dropdown-menu">
-          <li><a href="#">Your Profile & Pins</a></li>
+          <li><a href="#/users/<%= current_user.id %>">
+            Your Profile & Pins
+          </a></li>
           <li><a href="#">Settings</a></li>
           <li class="divider"></li>
           <li><a href="#">Find Friends</a></li>

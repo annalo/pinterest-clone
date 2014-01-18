@@ -1,3 +1,57 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-header-wrapper {
+  width: 736px;
+  margin: 0 auto;
+  float: none;
+}
+
+.user-profile-header {
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  background: #ffffff;
+  color: #333333;
+  float: none;
+  height: 153px;
+  position: relative;
+  width: 736px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.navbar-static-top {
+  background-color: #ececec;
+  background: -webkit-linear-gradient( #f3f3f3, #e5e5e5);
+  background: linear-gradient( #f3f3f3, #e5e5e5);
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
+  overflow: hidden;
+  border-left: 1px solid #d4d4d4;
+  border-left: 1px solid rgba(0, 0, 0, 0.17);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.17);
+  border-left: 1px solid #d4d4d4;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  clear: both;
+  color: #333333;
+  height: 44px;
+  line-height: 44px;
+  max-width: 10000px;
+  position: relative;
+}
+
+#views {
+  width: 1250px;
+}
+
+.user-header > .active {
+  background-color: #ffffff;
+  
+}
+
+li a.hover {
+  background-color: red;
+  
+}
