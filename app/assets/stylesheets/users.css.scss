@@ -47,11 +47,31 @@
 }
 
 .user-header > .active {
-  background-color: #ffffff;
-  
 }
 
-li a.hover {
-  background-color: red;
+.btn-default{
+  background-color: #ececec;
+  color: #777777;
+  border-color: transparent;
+
+}
+
+#user-nav {
+  a {
+    font-size: 12px;
+    font-weight: 900;
+    color: #777777;
+  }
   
+  a:active {
+
+    color: #777777;
+  }
+  
+  a:hover,
+  a:focus {
+    color: #333333;
+    background-color: #ececec;
+    text-decoration: none;
+  }
 }

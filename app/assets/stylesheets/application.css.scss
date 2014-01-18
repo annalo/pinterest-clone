@@ -55,9 +55,9 @@ select optgroup {
 }
 
 .navbar-fixed-top .btn {
-  background-color: #f7f7f7;
+  background-color: #ffffff;
   border: 1px solid #cccccc;
-  color: #5f5f5f;
+  color: #e3e3e3;
   cursor: pointer;
   font-weight: bold;
   text-shadow: 0 1px #ffffff;
@@ -69,6 +69,16 @@ select optgroup {
     background-color: #C92228;
     text-decoration: none;
   }
+}
+
+.navbar-default .navbar-brand {
+  color: #C92228;
+}
+
+#navbar-brand-center {
+  width: 150px; 
+  margin: 0 auto; 
+  float: none;
 }
 
 .user-button {

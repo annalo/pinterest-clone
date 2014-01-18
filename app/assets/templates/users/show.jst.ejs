@@ -6,15 +6,19 @@
 </div>
 </div>
 
-<nav 
-  class="navbar navbar-default navbar-static-top user-header" 
+<div 
+  class="navbar navbar-static-top" 
+  id="user-nav"
   role="navigation"
   style="margin-bottom: 10px">
-  <ul class="nav navbar-nav">
-    <li class="active"><a href="#/users/<%= user.id %>/boards">Boards</a></li>
-    <li><a href="#">Pins</a></li>
-    <li><a href="#">Likes</a></li>
-  </ul>
-</nav>
+  
+  <div class="btn-group btn-group-lg user-nav">
+    <button type="button" class="btn btn-default">
+      <a href="#/users/<%= user.id %>/boards">Boards</a>
+    </button>
+    <button type="button" class="btn btn-default">Pins</button>
+    <button type="button" class="btn btn-default">Likes</button>
+  </div>
+</div>
 
 <div id="views"></div>
