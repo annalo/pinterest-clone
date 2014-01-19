@@ -1,31 +1,29 @@
 this is where pins go!
-
-<div id="container">
-  <div class="item">
-    <img src="http://placekitten.com/200/200">
-  </div>
-  <div class="item">
-    <img src="http://placekitten.com/250/200">
-  </div>
-  <div class="item">
-    <img src="http://placekitten.com/200/200">
-  </div>
-  <div class="item">
-    <img src="http://placekitten.com/230/200">
-  </div>
-  <div class="item">
-    <img src="http://placekitten.com/200/200">
-  </div>
-</div>
+<ul id="tiles" style="position: relative; list-style-type: none">
+	<li><img src="http://www.hdwallpaperswing.com/wp-content/uploads/2013/05/japan_digital_landscape_hd_wide-wide1.jpg" class="img-responsive"><p>1</p></li>
+	<li><img src="https://lh3.ggpht.com/-MzZCzWI_6Xc/UIUQp1qPfzI/AAAAAAAAHpA/OTwHCJSWFAY/s1600/cats_animals_kittens_cat_kitten_cute_desktop_1680x1050_hd-wallpaper-753974.jpeg" class="img-responsive"><p>2</p></li>
+	<li><img src="http://placekitten.com/200/200" class="img-responsive"><p>3</p></li>
+	<li><img src="images/image_4.jpg" width="200" height="158"><p>4</p></li>
+	<li><img src="images/image_5.jpg" width="200" height="300"><p>5</p></li>
+	<li><img src="images/image_6.jpg" width="200" height="297"><p>6</p></li>
+	<li><img src="images/image_7.jpg" width="200" height="200"><p>7</p></li>
+	<li><img src="images/image_8.jpg" width="200" height="200"><p>8</p></li>
+	<li><img src="images/image_9.jpg" width="200" height="398"><p>9</p></li>
+	<li><img src="images/image_10.jpg" width="200" height="267"><p>10</p></li>
+	<li><img src="images/image_1.jpg" width="200" height="283"><p>11</p></li>
+	<li><img src="images/image_2.jpg" width="200" height="300"><p>12</p></li>
+</ul>
 
 
 <script>
-var $container = $('#container');
-
-$container.imagesLoaded(function() {
-  $container.masonry({
-    columnWidth: 200,
-    itemSelector : '.item'
-  });
+$(document).imagesLoaded(function() {
+	// Call the layout function.
+	$('#tiles li').wookmark({
+    align: "center",
+		autoResize: true, // This will auto-update the layout when the browser window is resized.
+		container: $('#tiles'), // Optional, used for some extra CSS styling
+		offset: 10, // Optional, the distance between grid items
+		itemWidth: 236 // Optional, the width of a grid item
+	});
 });
 </script>

@@ -24,3 +24,4 @@
 //= require bootstrap
 //= require jquery.masonry.min
 //= require jquery.serializeJSON.min
+//= require jquery.wookmark

@@ -21,4 +21,11 @@ window.PinterestClone = {
 
 $(document).ready(function(){
   PinterestClone.initialize();
+  
+  $("#pin-container li").wookmark({
+    autoResize: true,
+    container: $("#pin-container"),
+    offset: 2,
+    itemWidth: 210
+  });
 });
