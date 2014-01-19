@@ -1,18 +1,21 @@
 <div class="row">
-  <div id="board-wrapper">
-    <a href="#boards/new">Create a board</a>
-  </div>
-  
-  <% boards.each(function(board) { %>
-    <div id="board-wrapper">
-      <%= board.escape("name") %>
-      
-      <div id="board-edit-wrapper">
-        <a class="btn btn-default" 
-           id="board-edit-button"
-           href="#/boards/<%= board.id %>/edit"
-           role="button">Edit</a>
-      </div>
+  <div class="col-sm-12">
+    <div id="new-board-wrapper">
+      <a href="#boards/new">Create a board</a>
     </div>
-  <% }); %>
+  
+    <% boards.each(function(board) { %>
+      <div id="board-wrapper">
+        
+        <a href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>"><%= board.escape("name") %></a>
+      
+        <div id="board-edit-button-wrapper">
+          <a class="btn btn-default" 
+             id="board-edit-button"
+             href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>/edit"
+             role="button">Edit</a>
+        </div>
+      </div>
+    <% }); %>
+  </div>
 </div>

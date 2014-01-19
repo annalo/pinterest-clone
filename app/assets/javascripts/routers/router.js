@@ -1,68 +1,47 @@
 PinterestClone.Routers.Router = Backbone.Router.extend({
-  initialize: function(boards, $rootEl) {
-    this.boards = boards;
+  initialize: function(users, $rootEl) {
+    this.users = users;
     this.$rootEl = $rootEl;
   },
 
   routes: {
     "": "home",
-    "boards": "indexBoards",
     "boards/new": "newBoard",
-    "boards/:id/edit": "editBoard",
     "users/:id(/:type)": "showUser",
-    "users/:user_id/boards/:id": "showBoard"
+    "users/:user_id/boards/:id(/:type)": "showBoard",
+    "users/:user_id/boards/:id/edit": "editBoard"
   },
   
   home: function() {
+    // change to pins: this.model.get("pins")?
     var view = new PinterestClone.Views.Home({ collection: this.boards });
     this._swapView(view);
   },
   
   showUser: function(id, type) {
-    var user = new PinterestClone.Models.User({ id: id });
+    var user = this.users.get(id);
+    var boards = user.get("boards");
     var view = new PinterestClone.Views.UserShow({ 
-      type: type,
       model: user, 
-      collection: this.boards
+      collection: boards,
+      type: type
     });
     this._swapView(view);
-    // this.indexBoards();
   },
   
-  showUser: function(id, type) {
-    var user = new PinterestClone.Models.User({ id: id });
-    var view = new PinterestClone.Views.UserShow({ 
-      type: type,
-      model: user, 
-      collection: this.boards
+  showBoard: function(user_id, id, type) {
+    var user = this.users.get(user_id);
+    var board = user.get("boards").get(id);
+    var view = new PinterestClone.Views.BoardShow({ 
+      model: board,
+      type: type
     });
-    this._swapView(view);
-    // this.indexBoards();
-  },
-    
-  // indexBoards: function() {
-  //   var view = new PinterestClone.Views.BoardsIndex({ collection: this.boards });
-  //   $("#views").append(view.render().$el);
-  // },
-  
-  showBoard: function(id) {
-    var board = this.boards.get(id);
-    var view = new PinterestClone.Views.BoardShow({ model: board });
     this._swapView(view);
   },
     
   newBoard: function() {
     var newBoard = new PinterestClone.Models.Board();    
-    var view = new PinterestClone.Views.BoardForm({ 
-      model: newBoard,
-      collection: this.boards
-    });    
-    this._swapView(view);
-  },
-  
-  editBoard: function(id) {
-    var board = this.boards.get(id);
-    var view = new PinterestClone.Views.BoardForm({ model: board });
+    var view = new PinterestClone.Views.BoardForm({ model: newBoard });    
     this._swapView(view);
   },
 

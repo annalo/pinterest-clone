@@ -42,14 +42,15 @@
 }
 
 #views {
-  width: 1250px;
+  width: auto;
 }
 
 .user-header > .active {
 }
 
 .btn-default{
-  background-color: #ececec;
+  background: -webkit-linear-gradient( #f3f3f3, #e5e5e5);
+  background: linear-gradient( #f3f3f3, #e5e5e5);
   color: #777777;
   border-color: transparent;
 

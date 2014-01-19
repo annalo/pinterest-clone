@@ -5,12 +5,12 @@ window.PinterestClone = {
   Routers: {},
   initialize: function() {
     console.log("Initializing!");
-    var boards = new PinterestClone.Collections.Boards();
+    var users = new PinterestClone.Collections.Users();
     var $rootEl = $("#content");
     
-    boards.fetch({
+    users.fetch({
       success: function() {
-        new PinterestClone.Routers.Router(boards, $rootEl);
+        new PinterestClone.Routers.Router(users, $rootEl);
         Backbone.history.start();
       },
       

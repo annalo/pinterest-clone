@@ -1,7 +1,7 @@
 class Api::BoardsController < ApplicationController
   before_filter :require_current_user!
   def index
-    @boards = current_user.boards
+    @boards = Board.all
     render "index"
   end
   
@@ -27,7 +27,7 @@ class Api::BoardsController < ApplicationController
   def update
     @board = Board.find(params[:id])
     if @board.update_attributes(params[:board])
-      redirect_to api_board_url(@board)
+      render :json => @board
     else
       render :json => @board.errors.full_messages
     end
@@ -36,6 +36,6 @@ class Api::BoardsController < ApplicationController
   def destroy
     @board = Board.find(params[:id])
     @board.destroy
-    redirect_to root_url
+    render :json => @board
   end
 end

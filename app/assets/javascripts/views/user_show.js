@@ -1,7 +1,5 @@
 PinterestClone.Views.UserShow = Backbone.View.extend({
   initialize: function(options) {
-    this.listenTo(this.model, "change", this.render);
-    this.model.fetch();
     this.type = options.type;
   },
   

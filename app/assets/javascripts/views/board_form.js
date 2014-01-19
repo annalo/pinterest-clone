@@ -15,24 +15,12 @@ PinterestClone.Views.BoardForm = Backbone.View.extend({
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     
-    function success(model) {
-      var user_id = model.get("user_id")
-      Backbone.history.navigate("/users/" + user_id, { trigger: true });
-    }
-    
     this.model.set(attrs);
     
-    if(this.model.isNew()) {
-      this.collection.create(this.model, {
-        success: function(model) {
-          debugger;
-          success(model);
-        }
-      });
-    } else {
-      this.model.save({}, {
-        success: success()
-      });
-    }
+    this.model.save({}, {
+      success: function(model) {
+        Backbone.history.navigate("/boards/" + model.id, { trigger: true });
+      }
+    });
   }
 });

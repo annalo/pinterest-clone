@@ -52,6 +52,7 @@ select optgroup {
   z-index: 670;
   padding-left: 100px;
   padding-right: 110px;
+  margin-bottom: 0;
 }
 
 .navbar-fixed-top .btn {
@@ -86,8 +87,9 @@ select optgroup {
 }
 
 .form-actions {
+  display: block;
   margin: 0;
-  background-color: transparent;
+  width: auto;
   text-align: right;
 }
 
@@ -105,11 +107,47 @@ input.hidden {
 }
 
 .container {
-  width: 1250px;
+  width: auto;
   padding: 0;
+  margin: 10px;
 }
 
 #container {
-  width: 1250px;
   margin: 0 auto;
+}
+
+.col-sm-12 {
+  padding: 0 21px 0 21px;
+}
+
+.btn-default {
+  background-color: #f7f7f7;
+  background: -webkit-linear-gradient( #ffffff, #f0f0f0);
+  background: linear-gradient( #ffffff, #f0f0f0);
+  border: 1px solid #cccccc;
+  color: #5f5f5f;
+  cursor: pointer;
+  font-weight: bold;
+  text-shadow: 0 1px #ffffff;
+  white-space: nowrap;
+  font-size: 12px;
+  padding: 8px 14px 7px;
+}
+
+.btn-primary {
+  -webkit-font-smoothing: antialiased;
+  background-image: -webkit-linear-gradient( #e3262e, #ab171e);
+  background-image: linear-gradient( #e3262e, #ab171e);
+  background-color: #ab171e;
+  border-bottom-color: #820a0f;
+  border-left-color: #9a1015;
+  border-right-color: #9a1015;
+  border-top-color: #af151b;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34);
+  color: #ffffff;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.11);
+  font-size: 12px;
+  font-weight: bold;
 }
