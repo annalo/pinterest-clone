@@ -1,11 +1,12 @@
 PinterestClone.Routers.Router = Backbone.Router.extend({
-  initialize: function(users, $rootEl) {
-    this.users = users;
+  initialize: function($rootEl, pins) {
+    this.pins = pins;
     this.$rootEl = $rootEl;
   },
 
   routes: {
     "": "home",
+    "pins/:id(/:type)": "showPin",
     "boards/new": "newBoard",
     "users/:id(/:type)": "showUser",
     "users/:user_id/boards/:id(/:type)": "showBoard",
@@ -13,8 +14,16 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
   },
   
   home: function() {
-    // change to pins: this.model.get("pins")?
-    var view = new PinterestClone.Views.Home({ collection: this.boards });
+    var view = new PinterestClone.Views.Home({ collection: this.pins });
+    this._swapView(view);
+  },
+  
+  showPin: function(id, type) {
+    var pin = this.pins.get(id);
+    var view = new PinterestClone.Views.PinShow({
+      model: pin,
+      type: type
+    });
     this._swapView(view);
   },
   

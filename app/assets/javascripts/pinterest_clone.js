@@ -5,12 +5,12 @@ window.PinterestClone = {
   Routers: {},
   initialize: function() {
     console.log("Initializing!");
-    var users = new PinterestClone.Collections.Users();
+    var pins = new PinterestClone.Collections.Pins();
     var $rootEl = $("#content");
     
-    users.fetch({
+    pins.fetch({
       success: function() {
-        new PinterestClone.Routers.Router(users, $rootEl);
+        new PinterestClone.Routers.Router($rootEl, pins);
         Backbone.history.start();
       },
       
@@ -21,11 +21,4 @@ window.PinterestClone = {
 
 $(document).ready(function(){
   PinterestClone.initialize();
-  
-  $("#pin-container li").wookmark({
-    autoResize: true,
-    container: $("#pin-container"),
-    offset: 2,
-    itemWidth: 210
-  });
 });
