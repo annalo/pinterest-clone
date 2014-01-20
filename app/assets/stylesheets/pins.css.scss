@@ -2,19 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.tiles {
+#tiles {
   padding: 0;
+  position: relative; 
+  list-style-type: none; 
+  margin: 0 10px 0 10px;
   
-  li {
-    border-radius: 3px;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
-    background: #ffffff;
-    width: 236px;        
-    border: 1px solid #dedede;
-    display: none;
-    padding-bottom: 4px;
-    text-align: center;
+  p {
+    margin: 0;
   }
+}
+
+#tiles li {
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  background: #ffffff;
+  width: 236px;        
+  border: 1px solid #dedede;
+  display: none;
+  padding-bottom: 4px;
+  text-align: center;
 }
 
 #pin-wrapper {
@@ -26,10 +33,4 @@
   background: transparent;
   padding-top: 2px;
   padding-bottom: 2px;
-}
-
-.tiles {
-  p {
-    margin: 0;
-  }
 }

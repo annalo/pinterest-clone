@@ -1,9 +1,4 @@
 this is where pins go!
-<form>
-  <input type="text">
-  <button class="submit-pin-url">Submit</button>
-</form>
-
 <ul id="tiles" 
   style="position: relative; list-style-type: none; margin: 0 10px 0 10px">
   
@@ -25,10 +20,10 @@ this is where pins go!
 <script>
 $(document).imagesLoaded(function() {
 	// Call the layout function.
-	$('.tiles li').wookmark({
+	$('#tiles li').wookmark({
     align: "left",
 		autoResize: true, // This will auto-update the layout when the browser window is resized.
-		container: $('.tiles'), // Optional, used for some extra CSS styling
+		container: $('#tiles'), // Optional, used for some extra CSS styling
 		offset: 10, // Optional, the distance between grid items
 		itemWidth: 236 // Optional, the width of a grid item
 	});

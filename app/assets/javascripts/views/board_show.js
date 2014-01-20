@@ -1,8 +1,6 @@
 PinterestClone.Views.BoardShow = Backbone.View.extend({
   initialize: function(options) {
     this.listenTo(this.model, "change", this.render);
-    this.model.fetch();
-    this.user = options.user;
     this.type = options.type;
   },
   
@@ -15,25 +13,26 @@ PinterestClone.Views.BoardShow = Backbone.View.extend({
     } else if(this.type === "delete") {
       this.delete();
     } else {
-      var renderedContent = this.template({ 
-        board: this.model,
-        pins: this.collection
-      });
+      var renderedContent = this.template({ board: this.model });
       this.$el.html(renderedContent);
-            
-      var pinsView = new PinterestClone.Views.PinsIndex({ 
-        model: that.user,
-        collection: that.collection 
-      });
-      $("#pins-wrapper").append(pinsView.render().$el);
     }
+    this.pinsIndex();
     
     return this;
   },
   
+  pinsIndex: function() {
+    var pins = this.model.get("pins");
+    var pinsView = new PinterestClone.Views.PinsIndex({ 
+      collection: pins,
+      boards: this.collection 
+    });
+    this.$("#pins-wrapper").append(pinsView.render().$el);
+  },
+  
   edit: function() {
     var view = new PinterestClone.Views.BoardForm({ model: this.model });
-    $("#modal-body-board-edit").append(view.render().$el);
+    $("#modal-body").append(view.render().$el);
   },
   
   delete: function() {

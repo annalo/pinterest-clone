@@ -1,4 +1,8 @@
 PinterestClone.Views.PinsIndex = Backbone.View.extend({
+  initialize: function(options) {
+    this.boards = options.boards;
+  },
+  
   template: JST["pins/index"],
   
   events: {
@@ -18,11 +22,10 @@ PinterestClone.Views.PinsIndex = Backbone.View.extend({
     event.preventDefault();
     var pin_id = $(event.target).attr("data-id");
     var pin = this.collection.get(pin_id);
-    var boards = this.model.get("boards");
     
     var view = new PinterestClone.Views.PinEdit({ 
       model: pin,
-      collection: boards
+      collection: this.boards
     });
     
     $("#modal-body").empty();

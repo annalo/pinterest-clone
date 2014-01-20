@@ -28,16 +28,18 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
   },
   
   newPin: function(type) {
-    debugger;
     event.preventDefault();
     var newPin = new PinterestClone.Models.Pin();
     if(type === "web") {
-      var view = new PinterestClone.Views.PinNewWeb({ 
+      var view = new PinterestClone.Views.PinWeb({ 
         model: newPin,
-        type: type
+        collection: this.pins
       });
-    } else {
-      
+    } else if(type === "upload") {
+      var view = new PinterestClone.Views.PinUpload({ 
+        model: newPin,
+        collection: this.pins
+      });
     }
 
     $("#modal-body").empty();
@@ -61,22 +63,16 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
   
   showBoard: function(user_id, id, type) {
     var that = this;
-    var user = new PinterestClone.Models.User({ id: user_id });
-    var board = new PinterestClone.Models.Board({ id: id });
-    user.fetch({
+    var boards = new PinterestClone.Collections.Boards();
+    boards.fetch({
       success: function() {
-        board.fetch({
-          success: function() {
-            var pins = board.get("pins");
-            var view = new PinterestClone.Views.BoardShow({ 
-              model: board,
-              collection: pins,
-              user: user,
-              type: type
-            });
-            that._swapView(view);
-          }
+        var board = boards.get(id);
+        var view = new PinterestClone.Views.BoardShow({ 
+          model: board,
+          collection: boards,
+          type: type
         });
+        that._swapView(view);
       }
     });
   },

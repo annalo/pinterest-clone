@@ -15,11 +15,10 @@
 //= require underscore
 //= require backbone
 //= require pinterest_clone
-//= require backbone-relational
 //= require bootstrap
 //= require jquery.masonry.min
-//= require jquery.serializeJSON.min
 //= require jquery.wookmark
+//= require jquery.serializeJSON.min
 //
 //= require_tree ../templates
 //= require_tree ./models

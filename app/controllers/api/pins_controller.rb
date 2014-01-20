@@ -10,8 +10,10 @@ class Api::PinsController < ApplicationController
   end
   
   def create
-    @pin = Pin.new(params[:pin])
+    @pin = current_user.posted_pins.new(params[:pin])
+    # board = ???
     if @pin.save
+      # board.pins << @pin
       render "show"
     else
       render :json => @pin.errors.full_messages, :status => 422
