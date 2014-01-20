@@ -27,6 +27,8 @@ gem 'pg'
 gem 'rails_12factor'
 
 gem 'bootstrap-sass'
+gem 'kaminari'
+gem 'friendly_id'
 
 # Deploy with Capistrano
 # gem 'capistrano'

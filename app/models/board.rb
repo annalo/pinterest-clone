@@ -1,4 +1,7 @@
 class Board < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
+  
   attr_accessible :name, :description, :category_id, :user_id
   
   validates :name, :user_id, :presence => true

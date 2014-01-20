@@ -23,6 +23,9 @@ class UsersController < ApplicationController
   def show
     if params.include?(:id)
       @user = User.find(params[:id])
+      respond_to do |format|
+        format.json { render "show" }
+      end
     else
       redirect_to root_url
     end
