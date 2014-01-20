@@ -3,16 +3,11 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
     this.pins = pins;
     this.$rootEl = $rootEl;
   },
-  
-  events: {
-    "click .new-pin": "newPin",
-    "click .new-board": "newBoard"
-  },
 
   routes: {
     "": "home",
+    "pins/new(/:type)": "newPin",
     "pins/:id(/:type)": "showPin",
-    "pins/new": "newPin",
     "boards/new": "newBoard",
     "users/:id(/:type)": "showUser",
     "users/:user_id/boards/:id(/:type)": "showBoard"
@@ -32,15 +27,19 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
   
-  newPin: function() {
+  newPin: function(type) {
+    debugger;
     event.preventDefault();
-    var newPin = new PinterestClone.Models.Board();    
-    var view = new PinterestClone.Views.BoardForm({ model: newPin });
+    var newPin = new PinterestClone.Models.Pin();    
+    var view = new PinterestClone.Views.PinNew({ 
+      model: newPin,
+      type: type
+    });
     
     $("#modal-body").empty();
     $("#modal-body").append(view.render().$el);
     $("#modal").modal("toggle");
-  }
+  },
   
   showUser: function(id, type) {
     var that = this;
