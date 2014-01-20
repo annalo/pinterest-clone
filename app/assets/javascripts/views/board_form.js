@@ -1,7 +1,8 @@
 PinterestClone.Views.BoardForm = Backbone.View.extend({
   events: { 
     "click #cancel": "closeModal",
-    "click #submit-board": "submit"
+    "click #submit-board": "submit",
+    "click #delete-board": "delete"
   },
   
   tagName: "form",
@@ -15,21 +16,28 @@ PinterestClone.Views.BoardForm = Backbone.View.extend({
   },
   
   closeModal: function() {
-    debugger;
-    $("#board-edit-modal").modal("close");
-    
+    $("#modal").modal("hide");
   },
   
   submit: function(event) {
-    event.preventDefault();
     var attrs = this.$el.serializeJSON();
     
     this.model.set(attrs);
     
     this.model.save({}, {
       success: function(model) {
-        $("board-edit-modal").modal("toggle");
+        $("#modal").modal("hide");
         Backbone.history.navigate("#/users/" + model.get("user_id") + "/boards", { trigger: true });
+      }
+    });
+  },
+  
+  delete: function() {
+    this.model.destroy({
+      success: function(model) {
+        var user_id = model.get("user_id")
+        $("#modal").modal("hide");
+        Backbone.history.navigate("/users/" + user_id, { trigger: true });
       }
     });
   }

@@ -1,6 +1,7 @@
 <% var header = (board.id === undefined) ? "Create a Board" : "Edit Board / " + board.escape("name") %>
 <% var message = (board.id === undefined) ? "Create Board" : "Save Changes" %>
 
+<h3 align="center"><%= header %></h3>
 <form role="form">
 
   <div class="row">
@@ -41,14 +42,14 @@
       <% if(board.id !== undefined) { %>   
         <input type="submit" class="hidden">
         
-        <a href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>/delete" class="btn btn-default">Delete Board</a>
+        <button type="button" class="btn btn-default" id="delete-board">Delete Board</button>
       <% } %>
 
     </div>
   
     <div class= "col-xs-5 col-xs-offset-4">      
       <button type="button" class="btn btn-default" id="cancel">Cancel</button>
-      <button type="button" class="btn btn-primary"  id="submit-board" data-id="<%= board.id %>"><%= message %></button>
+      <button type="button" class="btn btn-primary"  id="submit-board"><%= message %></button>
     </div>
   </div>
   <p></p>

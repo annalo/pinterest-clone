@@ -67,9 +67,13 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
   },
     
   newBoard: function() {
+    event.preventDefault();
     var newBoard = new PinterestClone.Models.Board();    
-    var view = new PinterestClone.Views.BoardForm({ model: newBoard });    
-    this._swapView(view);
+    var view = new PinterestClone.Views.BoardForm({ model: newBoard });
+    
+    $("#modal-body").empty();
+    $("#modal-body").append(view.render().$el);
+    $("#modal").modal("toggle");
   },
 
   _swapView: function(view) {
