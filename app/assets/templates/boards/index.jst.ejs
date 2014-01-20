@@ -1,21 +1,61 @@
 <div class="row">
   <div class="col-sm-12">
-    <div id="new-board-wrapper">
-      <a href="#boards/new">Create a board</a>
-    </div>
-  
-    <% boards.each(function(board) { %>
-      <div id="board-wrapper">
-        
-        <a href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>"><%= board.escape("name") %></a>
-      
-        <div id="board-edit-button-wrapper">
-          <a class="btn btn-default" 
-             id="board-edit-button"
-             href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>/edit"
-             role="button">Edit</a>
-        </div>
+    
+    <div class="row">
+
+      <!-- create new board -->
+      <div class="col-sm-6 col-md-2 text-center">
+        <a href=""><div class="thumbnail" id="new-board-wrapper">
+          <div class="caption">
+            <h5>Create a Board</h5>
+            <div style="height: 255px"></div>
+          </div>
+        </div></a>
       </div>
+      
+      <!-- boards -->
+      <% boards.each(function(board) { %>
+      <div class="col-sm-6 col-md-2 text-center">
+        
+        <a href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>"><div class="thumbnail">
+          <div class="caption">
+            <h5><%= board.escape("name") %></h5>
+          </div>
+          <div style="height: 211px">
+            <img data-src="" alt="..." class="img-responsive">
+          </div>
+          
+          <p><button class="btn btn-default" id="board-edit" data-id="<%= board.id %>" style="width: 216px">Edit</button></p>
+        </div></a>
+        
+      </div>
+
     <% }); %>
   </div>
 </div>
+
+
+<!-- modal for edit -->
+<div class="modal fade" 
+    id="board-edit-modal" 
+    tabindex="-1" role="dialog" 
+    aria-labelledby="editModalLabel" 
+    aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Edit Board</h4>
+      </div>
+      
+      <!-- insert form -->
+      <div class="modal-body" id="modal-body-board-edit" style="padding-bottom: 0">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->    
+
+
+
+
+

@@ -3,14 +3,18 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
     this.pins = pins;
     this.$rootEl = $rootEl;
   },
+  
+  events: {
+    "click .new-pin": "newPin",
+    "click .new-board": "newBoard"
+  },
 
   routes: {
     "": "home",
     "pins/:id(/:type)": "showPin",
     "boards/new": "newBoard",
     "users/:id(/:type)": "showUser",
-    "users/:user_id/boards/:id(/:type)": "showBoard",
-    "users/:user_id/boards/:id/edit": "editBoard"
+    "users/:user_id/boards/:id(/:type)": "showBoard"
   },
   
   home: function() {
@@ -28,23 +32,37 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
   },
   
   showUser: function(id, type) {
-    var user = this.users.get(id);
-    var boards = user.get("boards");
-    var view = new PinterestClone.Views.UserShow({ 
-      model: user, 
-      collection: boards,
-      type: type
+    var that = this;
+    var user = new PinterestClone.Models.User({ id: id });
+    user.fetch({
+      success: function() {
+        var view = new PinterestClone.Views.UserShow({ 
+          model: user,
+          type: type
+        });
+        that._swapView(view);
+      }
     });
-    this._swapView(view);
   },
   
   showBoard: function(user_id, id, type) {
-    var user = this.users.get(user_id);
-    var board = user.get("boards").get(id);
-    var view = new PinterestClone.Views.BoardShow({ 
-      model: board,
-      type: type
+    var that = this;
+    var board = new PinterestClone.Models.Board({ id: id });
+    board.fetch({
+      success: function() {
+        var view = new PinterestClone.Views.BoardShow({ 
+          model: board,
+          type: type
+        });
+        that._swapView(view);
+      }
     });
+  },
+  
+  newPin: function() {
+    debugger;
+    var newBoard = new PinterestClone.Models.Board();    
+    var view = new PinterestClone.Views.BoardForm({ model: newBoard });    
     this._swapView(view);
   },
     

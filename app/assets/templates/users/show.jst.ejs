@@ -10,19 +10,34 @@
   <div class="col-sm-12">
     <div 
       class="navbar navbar-static-top" 
-      id="user-nav"z
+      id="user-nav"
       role="navigation"
       style="margin-bottom: 10px">
   
       <div class="btn-group btn-group-lg user-nav">
-        <button type="button" class="btn btn-default">
-          <a href="#/users/<%= user.id %>/boards">Boards</a>
+        <button type="button" class="btn btn-default" id="button-boards">
+          Boards
         </button>
-        <button type="button" class="btn btn-default">Pins</button>
-        <button type="button" class="btn btn-default">Likes</button>
+        
+        <button type="button" class="btn btn-default" id="button-pins">
+          Pins
+        </button>
+        <button type="button" class="btn btn-default" id="button-likes">
+          Likes
+        </button>
       </div>
     </div>
   </div>
 </div>
 
 <div id="views"></div>
+
+<script>
+  $('#button-boards').click(function() {
+    window.location="#/users/<%= user.id %>/boards";
+  });
+  
+  $('#button-pins').click(function() {
+    window.location="#/users/<%= user.id %>/pins";
+  });
+</script>

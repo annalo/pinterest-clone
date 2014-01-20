@@ -6,14 +6,17 @@ PinterestClone.Views.BoardShow = Backbone.View.extend({
   },
   
   template: JST["boards/show"],
-  
+    
   render: function() {
     if(this.type === "edit") {
       this.edit();
     } else if(this.type === "delete") {
       this.delete();
     } else {
-      var renderedContent = this.template({ board: this.model });
+      var renderedContent = this.template({ 
+        board: this.model,
+        pins: this.model.pins
+       });
       this.$el.html(renderedContent);
     }
     
@@ -22,7 +25,7 @@ PinterestClone.Views.BoardShow = Backbone.View.extend({
   
   edit: function() {
     var view = new PinterestClone.Views.BoardForm({ model: this.model });
-    this.$el.html(view.render().$el);
+    $("#modal-body-board-edit").append(view.render().$el);
   },
   
   delete: function() {

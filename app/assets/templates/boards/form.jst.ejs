@@ -1,17 +1,15 @@
 <% var header = (board.id === undefined) ? "Create a Board" : "Edit Board / " + board.escape("name") %>
 <% var message = (board.id === undefined) ? "Create Board" : "Save Changes" %>
 
-<h2 align="center"><%= header %></h2>
-
 <form role="form">
 
   <div class="row">
-    <div class="col-xs-1 col-xs-offset-3">
+    <div class="col-xs-1 col-xs-offset-2">
     
       <label for="board_name">Name*</label>
     </div>
     
-    <div class="col-xs-4">
+    <div class="col-xs-6 col-xs-offset-1">
       <input 
         class="form-control"
         id="board_name" 
@@ -23,11 +21,11 @@
   </div>
   <p>
   <div class="row">
-    <div class="col-xs-1 col-xs-offset-3">
+    <div class="col-xs-1 col-xs-offset-2">
         <label for="board_desc">Description</label>
     </div>
   
-    <div class="col-xs-4">
+    <div class="col-xs-6 col-xs-offset-1">
         <textarea 
           class="form-control"
           id="board_desc" 
@@ -39,17 +37,19 @@
   </div>
 
   <div class="row">
-    <div class= "col-xs-1 col-xs-offset-4">
-      <% if(board.id !== undefined) { %>        
+    <div class= "col-xs-1 col-xs-offset-1">
+      <% if(board.id !== undefined) { %>   
+        <input type="submit" class="hidden">
+        
         <a href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>/delete" class="btn btn-default">Delete Board</a>
       <% } %>
 
     </div>
   
-    <div class= "col-xs-2 col-xs-offset-1">
-      <input type="submit" class="hidden">
-      <a href="/" class="btn btn-default">Cancel</a>
-      <button type="submit" class="btn btn-primary"><%= message %></button>
+    <div class= "col-xs-5 col-xs-offset-4">      
+      <button type="button" class="btn btn-default" id="cancel">Cancel</button>
+      <button type="button" class="btn btn-primary"  id="submit-board" data-id="<%= board.id %>"><%= message %></button>
     </div>
   </div>
+  <p></p>
 </form>
