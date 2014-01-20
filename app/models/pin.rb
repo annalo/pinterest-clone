@@ -3,4 +3,5 @@ class Pin < ActiveRecord::Base
   
   belongs_to :user
   has_many :boards_pins
+  has_many :boards, :through => :boards_pins, :source => :board
 end

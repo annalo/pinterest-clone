@@ -20,7 +20,9 @@
         placeholder="ex: For the Home">
     </div>
   </div>
+  
   <p>
+    
   <div class="row">
     <div class="col-xs-1 col-xs-offset-2">
         <label for="board_desc">Description</label>
@@ -47,8 +49,11 @@
 
     </div>
   
-    <div class= "col-xs-5 col-xs-offset-4">      
-      <button type="button" class="btn btn-default" id="cancel">Cancel</button>
+    <div class= "col-xs-5 col-xs-offset-4">
+        
+      <% var cancelData = (board.id !== undefined) ? "edit" : "new" %>
+      <button type="button" class="btn btn-default" id="cancel" data-id="<%= cancelData %>">Cancel</button>
+      
       <button type="button" class="btn btn-primary"  id="submit-board"><%= message %></button>
     </div>
   </div>

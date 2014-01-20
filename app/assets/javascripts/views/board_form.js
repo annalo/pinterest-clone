@@ -16,7 +16,13 @@ PinterestClone.Views.BoardForm = Backbone.View.extend({
   },
   
   closeModal: function() {
+    var type = $(event.target).attr("data-id");
+    
     $("#modal").modal("hide");
+    
+    if(type === "new") {
+      window.history.back();
+    }
   },
   
   submit: function(event) {
@@ -28,7 +34,6 @@ PinterestClone.Views.BoardForm = Backbone.View.extend({
       success: function(model) {
         $("#modal").modal("hide");
         $(".modal-backdrop").remove();
-
         Backbone.history.navigate("#/users/" + model.get("user_id") + "/boards", { trigger: true });
       }
     });

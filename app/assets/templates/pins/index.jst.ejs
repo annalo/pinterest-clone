@@ -2,45 +2,28 @@
   style="position: relative; list-style-type: none; margin: 0 10px 0 10px">
   
   <% pins.each(function(pin) { %>
-    <li>
+    <li>  
+      <!-- pin img -->
       <a href="#/pins/<%= pin.id %>">
         <img src="<%= pin.escape("img") %>" class="img-responsive">
       </a>
       <p><%= pin.escape("description") %></p>
-      <p><button class="btn btn-default" id="pin-edit" data-toggle="modal" data-target="#pin-edit-modal" data-id="<%= pin.id %>" style="width: 216px">Edit</button></p>
+      <!-- edit button -->
+      <button 
+          class="btn btn-default" 
+          id="pin-edit-button" 
+          data-id="<%= pin.id %>">
+        <span class="glyphicon glyphicon-pencil" id="edit-icon" data-id="<%= pin.id %>"></span>
+      </button>
     </li>
-    
-    <!-- modal for edit -->
-    <div class="modal fade" id="pin-edit-modal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Edit Pin</h4>
-          </div>
-          
-          <!-- insert form -->
-          <div class="modal-body" id="modal-body-pin-edit" style="padding-bottom: 0">
-          </div>
-          
-          <div class="modal-footer" style="margin-top: 0"> 
-            <div class= "col-xs-1">
-              <% if(pin.id !== undefined) { %>        
-                <a href="#/pins/<%= pin.id %>/delete" class="btn btn-default">Delete Pin</a>
-              <% } %>
-
-            </div>
-            
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary"  id="submit-pin" data-id="<%= pin.id %>">Save Changes</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->    
     
   <% }); %>
   
-	<li><img src="http://www.hdwallpaperswing.com/wp-content/uploads/2013/05/japan_digital_landscape_hd_wide-wide1.jpg" class="img-responsive"><p>1</p></li>
+	<li>
+    <img src="http://www.hdwallpaperswing.com/wp-content/uploads/2013/05/japan_digital_landscape_hd_wide-wide1.jpg" class="img-responsive"><p>1</p>
+    <button class="btn btn-default" id="pin-edit-button"><span class="glyphicon glyphicon-pencil"></span></button>
+  </li>
+    
 	<li><img src="https://lh3.ggpht.com/-MzZCzWI_6Xc/UIUQp1qPfzI/AAAAAAAAHpA/OTwHCJSWFAY/s1600/cats_animals_kittens_cat_kitten_cute_desktop_1680x1050_hd-wallpaper-753974.jpeg" class="img-responsive"><p>2</p></li>
 	<li><img src="http://placekitten.com/200/200" class="img-responsive"><p>3</p></li>
 </ul>
