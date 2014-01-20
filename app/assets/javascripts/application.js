@@ -22,7 +22,6 @@
 //= require_tree ./routers
 //= require_tree .
 //= require bootstrap
-//= require jquery.cookie
 //= require jquery.masonry.min
 //= require jquery.serializeJSON.min
 //= require jquery.wookmark

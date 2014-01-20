@@ -1,6 +1,8 @@
 PinterestClone.Views.UserShow = Backbone.View.extend({
   initialize: function(options) {
     this.type = options.type;
+    this.boards = this.model.get("boards");
+    this.pins = this.model.get("pins");
   },
   
   template: JST["users/show"],
@@ -8,13 +10,11 @@ PinterestClone.Views.UserShow = Backbone.View.extend({
   render: function() {
     var renderedContent = this.template({
       user: this.model,
-      boards: this.collection
     });
     
     this.$el.html(renderedContent);
     if(this.type === "pins") {
-      // render pins
-      console.log("no pins!")
+      this.indexPins();
     } else {
       this.indexBoards();
     }
@@ -22,7 +22,12 @@ PinterestClone.Views.UserShow = Backbone.View.extend({
   },
   
   indexBoards: function() {
-    var view = new PinterestClone.Views.BoardsIndex({ collection: this.collection });
+    var view = new PinterestClone.Views.BoardsIndex({ collection: this.boards });
+    this.$("#views").append(view.render().$el);
+  },
+  
+  indexPins: function() {
+    var view = new PinterestClone.Views.PinsIndex({ collection: this.pins });
     this.$("#views").append(view.render().$el);
   }
 });

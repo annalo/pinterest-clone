@@ -26,7 +26,7 @@ gem 'paperclip'
 gem 'pg'
 gem 'rails_12factor'
 
-gem 'bootstrap-sass', :github => 'thomas-mcdonald/bootstrap-sass'
+gem 'bootstrap'
 
 # Deploy with Capistrano
 # gem 'capistrano'
