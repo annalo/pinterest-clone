@@ -1,4 +1,5 @@
 class Api::PinsController < ApplicationController
+  
   def index
     @pins = Pin.all
     render "index"
@@ -25,10 +26,8 @@ class Api::PinsController < ApplicationController
   
   def update
     @pin = Pin.find(params[:id])
-    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    p params
     if @pin.update_attributes(params[:pin])
-      render :json => @pin
+      render "show"
     else
       render :json => @pin.errors.full_messages
     end

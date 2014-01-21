@@ -15,10 +15,19 @@ PinterestClone.Views.Home = Backbone.View.extend({
     event.preventDefault();
     var pin_id = $(event.currentTarget).val();
     var pin = this.collection.get(pin_id);
-    
-    var view = new PinterestClone.Views.BoardsPinForm({ model: pin });
-    
-    
-    debugger;
+    var attrs = pin.attributes
+
+    var newPin = new PinterestClone.Models.Pin(attrs);
+    newPin.unset("board_id", { silent: true });
+    newPin.unset("id", { silent: true });
+
+    var view = new PinterestClone.Views.PinForm({
+      model: newPin,
+      type: "new"
+    });
+
+    $("#modal-body").empty();
+    $("#modal-body").append(view.render().$el);
+    $("#modal").modal("show");
   }
 });

@@ -14,11 +14,11 @@ group :development do
   gem 'letter_opener'
 end
 
-gem 'aws-sdk'
 gem 'backbone-on-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'ejs'
 gem 'figaro'
+gem 'aws-sdk'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'newrelic_rpm'

@@ -5,7 +5,8 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
   
   initialize: function(options) {
     this.type = options.type;
-    this.boards = new PinterestClone.Collections.Boards();
+    
+    // determines which template to render
     if(this.type === "new") {
       this.template = this['template0'];
     } else {
@@ -17,25 +18,23 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
       }
     }
   },
+
+  tagName: "form",
   
   events: { 
-    "submit form": "submit",
     "click #cancel": "closeModal",
     "click #delete-pin": "delete",
-    "click #close": "delete"
+    "click #create-board": "createBoard",
+    "click #submit-pin-button": "submit"
   },
-    
+  
   render: function() {
-    var that = this
-    this.boards.fetch({
-      success: function() {
-        var renderedContent = that.template({
-          pin: that.model,
-          boards: that.boards,
-        });
-        that.$el.html(renderedContent);
-      }
-    });
+    var renderedContent = this.template({ pin: this.model });
+    this.$el.html(renderedContent);
+    
+    var listView = new PinterestClone.Views.BoardsList();
+    this.$("#boards-list-wrapper").append(listView.render().$el);
+    
     return this;
   },
   
@@ -44,16 +43,28 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
   },
   
   submit: function(event) {
+    var that = this;
     event.preventDefault();
-    var attrs = $(event.currentTarget).serializeJSON();
-    debugger;
+    var attrs = this.$el.serializeJSON().pin;
 
     this.model.set(attrs);
     this.model.save({}, {      
       success: function(model) {
         $("#modal").modal("hide");
         $(".modal-backdrop").remove();
-        Backbone.history.navigate("#/pins/" + model.id, { trigger: true });
+        
+        // if new pin, redirect to user board show page
+        if(that.type === "new") {
+          var board = model.get("board");
+          Backbone.history.navigate(
+            "#/users/" + board.get("user_id") + "/boards/" + board.id, 
+            { trigger: true });
+
+        // if editing pin, close modal (back to original page)
+        } else {
+          $("#modal").modal("hide");
+          $(".modal-backdrop").remove();
+        }
       }
     });
   },
@@ -64,7 +75,6 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
         console.log("model was deleted")        
         $("#modal").modal("hide");
         $(".modal-backdrop").remove();
-        window.history.back();
       }
     });
   }
