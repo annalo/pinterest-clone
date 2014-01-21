@@ -3,6 +3,7 @@ window.PinterestClone = {
   Collections: {},
   Views: {},
   Routers: {},
+
   initialize: function() {
     console.log("Initializing!");
     var pins = new PinterestClone.Collections.Pins();

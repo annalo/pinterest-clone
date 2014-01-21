@@ -25,8 +25,14 @@
             <img data-src="" alt="..." class="img-responsive">
           </div>
           
-          <!-- edit board -->
-          <p><button class="btn btn-default" id="board-edit" data-id="<%= board.id %>" style="width: 216px">Edit</button></p>
+          <!-- check for current user -->
+          <% if(user.get("current_user")) { %>
+
+            <!-- edit board -->
+            <p><button class="btn btn-default" id="board-edit" data-id="<%= board.id %>" style="width: 216px">Edit</button></p>
+
+          <% } %>
+
         </div></a>
         
       </div>

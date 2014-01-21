@@ -12,7 +12,10 @@ PinterestClone.Views.PinsIndex = Backbone.View.extend({
   },  
   
   render: function() {
-    var renderedContent = this.template({ pins: this.collection });
+    var renderedContent = this.template({ 
+      user: this.model,
+      pins: this.collection 
+    });
     this.$el.html(renderedContent);
     return this;
   },

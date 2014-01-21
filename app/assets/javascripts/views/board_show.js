@@ -22,10 +22,12 @@ PinterestClone.Views.BoardShow = Backbone.View.extend({
   },
   
   pinsIndex: function() {
+    var user = this.model.get("user");
     var pins = this.model.get("pins");
+    
     var pinsView = new PinterestClone.Views.PinsIndex({ 
-      collection: pins,
-      boards: this.collection 
+      model: user,
+      collection: pins
     });
     this.$("#pins-wrapper").append(pinsView.render().$el);
   },

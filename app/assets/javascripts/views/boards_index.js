@@ -10,7 +10,10 @@ PinterestClone.Views.BoardsIndex = Backbone.View.extend({
   },  
   
   render: function() {
-    var renderedContent = this.template({ boards: this.collection });
+    var renderedContent = this.template({
+      user: this.model,
+      boards: this.collection 
+    });
     this.$el.html(renderedContent);
     return this;
   },

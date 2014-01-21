@@ -7,10 +7,16 @@
         <img src="<%= pin.escape("img") %>" class="img-responsive">
       </a>
       <p><%= pin.escape("description") %></p>
-      <!-- edit button -->
-      <button class="btn btn-default" id="pin-edit-button" data-id="<%= pin.id %>">
-        <span class="glyphicon glyphicon-pencil" id="edit-icon" data-id="<%= pin.id %>"></span>
-      </button>
+
+      <!-- check for current_user -->
+      <% if(user.get("current_user")) { %>
+        <!-- edit button -->
+        <button class="btn btn-default" id="pin-edit-button" data-id="<%= pin.id %>">
+          <span class="glyphicon glyphicon-pencil" id="edit-icon" data-id="<%= pin.id %>"></span>
+        </button>
+      <% } %>
+
+
     </li>
     
   <% }); %>

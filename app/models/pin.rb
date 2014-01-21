@@ -1,5 +1,7 @@
 class Pin < ActiveRecord::Base
   attr_accessible :description, :img, :url, :board_id
+
+  validates :board_id, :presence => true
   
   has_attached_file :img, :styles => {
     :grid => "236x236>",
