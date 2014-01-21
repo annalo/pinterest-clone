@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140121052022) do
+ActiveRecord::Schema.define(:version => 20140121061734) do
 
   create_table "boards", :force => true do |t|
     t.string   "name",        :null => false
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(:version => 20140121052022) do
     t.string   "description"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.integer  "user_id"
     t.string   "img_file_name"
     t.string   "img_content_type"
     t.integer  "img_file_size"
@@ -57,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20140121052022) do
     t.integer  "board_id"
   end
 
-  add_index "pins", ["board_id"], :name => "index_pins_on_board_id", :unique => true
+  add_index "pins", ["board_id"], :name => "index_pins_on_board_id"
 
   create_table "users", :force => true do |t|
     t.string   "fname",           :null => false
