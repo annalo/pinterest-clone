@@ -9,7 +9,8 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
     if(this.type === "new") {
       this.template = this['template0'];
     } else {
-      if(this.model.get("url") === null ) {
+      var url = this.model.get("url")
+      if(url === null || url === "") {
         this.template = this['template1'];
       } else {
         this.template = this['template2'];
@@ -45,12 +46,10 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
   submit: function(event) {
     event.preventDefault();
     var attrs = $(event.currentTarget).serializeJSON();
-    var board_id = $("#board-pin").val();
-    var data = {};
-    data.extras = { board_id: board_id }
+    debugger;
 
     this.model.set(attrs);
-    this.model.save(data, {      
+    this.model.save({}, {      
       success: function(model) {
         $("#modal").modal("hide");
         $(".modal-backdrop").remove();

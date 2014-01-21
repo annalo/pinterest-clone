@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
   before_validation :ensure_session_token
   
   has_many :boards
-  has_many :pinned_pins, :class_name => "Pin", :foreign_key => :user_id
-  has_many :pins, :through => :boards, :source => :pins
+  has_many :pins, :class_name => "Pin", :foreign_key => :user_id
   
   def self.find_by_credentials(params)
     user = User.find_by_email(params[:email])

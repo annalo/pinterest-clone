@@ -7,6 +7,7 @@
   position: relative; 
   list-style-type: none; 
   margin: 0 10px 0 10px;
+  border-radius: 3px;
   
   p {
     margin: 0;
@@ -18,9 +19,8 @@
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
   background: #ffffff;
   width: 236px;        
-  border: 1px solid #dedede;
   display: none;
-  padding-bottom: 4px;
+  padding-bottom: 40px;
   text-align: center;
 }
 
@@ -33,4 +33,6 @@
   background: transparent;
   padding-top: 2px;
   padding-bottom: 2px;
+  float: right;
+  bottom: 0px;
 }

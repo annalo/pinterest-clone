@@ -9,6 +9,5 @@ class Board < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   
-  has_many :boards_pins
-  has_many :pins, :through => :boards_pins, :source => :pin
+  has_many :pins
 end

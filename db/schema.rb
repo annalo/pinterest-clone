@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140120193528) do
+ActiveRecord::Schema.define(:version => 20140121052022) do
 
   create_table "boards", :force => true do |t|
     t.string   "name",        :null => false
@@ -26,15 +26,6 @@ ActiveRecord::Schema.define(:version => 20140120193528) do
   add_index "boards", ["category_id"], :name => "index_boards_on_category_id"
   add_index "boards", ["slug"], :name => "index_boards_on_slug", :unique => true
   add_index "boards", ["user_id"], :name => "index_boards_on_user_id"
-
-  create_table "boards_pins", :force => true do |t|
-    t.integer  "board_id",   :null => false
-    t.integer  "pin_id",     :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "boards_pins", ["board_id"], :name => "index_boards_pins_on_board_id"
 
   create_table "categories", :force => true do |t|
     t.string   "name",       :null => false
@@ -63,7 +54,10 @@ ActiveRecord::Schema.define(:version => 20140120193528) do
     t.string   "img_content_type"
     t.integer  "img_file_size"
     t.datetime "img_updated_at"
+    t.integer  "board_id"
   end
+
+  add_index "pins", ["board_id"], :name => "index_pins_on_board_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "fname",           :null => false

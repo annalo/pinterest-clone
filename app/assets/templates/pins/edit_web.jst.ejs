@@ -7,9 +7,9 @@
     </div>
     
     <div class="col-xs-6 col-xs-offset-1">
-      <select class="form-control" id="board-pin">
+      <select name="pin[board_id]" class="form-control" id="board-pin">
         <% boards.each(function(board) { %>
-          <option name="boards_pin[board_id]" value="<%= board.id %>"><%= board.escape("name") %></option>
+          <option value="<%= board.id %>"><%= board.escape("name") %></option>
         <% }); %>
       </select>
     </div>

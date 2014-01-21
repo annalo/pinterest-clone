@@ -1,5 +1,5 @@
 class Pin < ActiveRecord::Base
-  attr_accessible :description, :img, :url, :user_id
+  attr_accessible :description, :img, :url, :user_id, :board_id
   
   has_attached_file :img, :styles => {
     :grid => "236x236>",
@@ -8,6 +8,5 @@ class Pin < ActiveRecord::Base
   }
   
   belongs_to :user
-  has_many :boards_pins
-  has_many :boards, :through => :boards_pins, :source => :board
+  belongs_to :board
 end

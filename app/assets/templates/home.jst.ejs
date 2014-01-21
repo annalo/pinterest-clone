@@ -2,12 +2,18 @@
   style="position: relative; list-style-type: none; margin: 0 10px 0 10px">
   
   <% pins.each(function(pin) { %>
-    <li>
-      <a href="#/pins/<%= pin.id %>">
-        <img src="<%= pin.escape("img") %>" class="img-responsive">
-      </a>
-      <p><%= pin.escape("description") %><p>
-    </li>
+    <% if(!pin.get("pinned")) { %>
+      <li>
+        <a href="#/pins/<%= pin.id %>">
+          <img src="<%= pin.escape("img") %>" class="img-responsive">
+        </a>
+        <p><%= pin.escape("description") %><p>
+        <!-- edit button -->
+        <button type="button" class="btn btn-default" id="pin-add-button" value="<%= pin.id %>" style="background: transparent; padding-top: 2px; padding-bottom: 2px; float: right">
+          <span class="glyphicon glyphicon-pushpin" id="edit-icon" data-id="<%= pin.id %>"></span>
+        </button>
+      </li>
+    <% } %>
   <% }); %>
 </ul>
 
@@ -16,7 +22,7 @@
 $(document).imagesLoaded(function() {
 	// Call the layout function.
 	$('#tiles li').wookmark({
-    align: "left",
+    align: "center",
 		autoResize: true, // This will auto-update the layout when the browser window is resized.
 		container: $('#tiles'), // Optional, used for some extra CSS styling
 		offset: 10, // Optional, the distance between grid items
