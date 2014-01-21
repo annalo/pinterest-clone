@@ -2,8 +2,7 @@
 <% var message = (board.id === undefined) ? "Create Board" : "Save Changes" %>
 
 <h3 align="center"><%= header %></h3>
-<form role="form">
-
+<div class="form-group">
   <div class="row">
     <div class="col-xs-1 col-xs-offset-2">
     
@@ -57,4 +56,4 @@
       <button type="button" class="btn btn-primary"  id="submit-board"><%= message %></button>
     </div>
   </div>
-</form>
+</div>

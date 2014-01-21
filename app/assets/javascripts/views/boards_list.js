@@ -41,9 +41,9 @@ PinterestClone.Views.BoardsList = Backbone.View.extend({
 
 	submit: function(event) {
 		event.preventDefault();
-		var attrs = $("#list-new-board-form").serializeJSON();
+		var name = $("#board_name").val();
+		this.boards.create({ name: name });
 		debugger;
-		this.boards.create(attrs.pin);
 
 		this.reRender();
 	}
