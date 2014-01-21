@@ -1,6 +1,5 @@
 PinterestClone.Views.PinUpload = Backbone.View.extend({  
-  initialize: function(options) {
-    this.type = options.type;
+  initialize: function() {
   },
   
   events: {
@@ -45,10 +44,18 @@ PinterestClone.Views.PinUpload = Backbone.View.extend({
       }
     });
     this.model.save(null, {
-      success: function() {
-        debugger;
+      success: function(model) {
         // redirect to view to edit pin / add to boards
         // window.location.assign()
+        
+        var view = new PinterestClone.Views.PinForm({ 
+          model: model,
+          type: "new"
+        });
+
+        $("#modal-body").empty();
+        $("#modal-body").append(view.render().$el);
+        $("#modal").modal("show");
       }
     });
   }

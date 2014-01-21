@@ -3,6 +3,7 @@ class Pin < ActiveRecord::Base
   
   has_attached_file :img, :styles => {
     :grid => "236x236>",
+    :thumbnail => "145x145#",
     :small => "50x50#"
   }
   

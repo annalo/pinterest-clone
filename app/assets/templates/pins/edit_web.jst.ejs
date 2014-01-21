@@ -7,9 +7,9 @@
     </div>
     
     <div class="col-xs-6 col-xs-offset-1">
-      <select class="form-control">
+      <select class="form-control" id="board-pin">
         <% boards.each(function(board) { %>
-          <option value="1"><%= board.escape("name") %></option>
+          <option name="boards_pin[board_id]" value="<%= board.id %>"><%= board.escape("name") %></option>
         <% }); %>
       </select>
     </div>
@@ -65,13 +65,9 @@
           
     <div class= "col-xs-5 col-xs-offset-4">      
       <button type="button" class="btn btn-default" id="cancel">Cancel</button>
-      <button 
-          type="button" 
-          class="btn btn-primary"
-          id="submit-pin">
+      <button type="submit" class="btn btn-primary" id="submit-pin">
         Save Changes
       </button>
     </div>
   </div>
-  <p></p>
 </form>

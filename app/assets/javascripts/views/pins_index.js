@@ -1,6 +1,5 @@
 PinterestClone.Views.PinsIndex = Backbone.View.extend({
-  initialize: function(options) {
-    this.boards = options.boards;
+  initialize: function() {
   },
   
   template: JST["pins/index"],
@@ -17,20 +16,19 @@ PinterestClone.Views.PinsIndex = Backbone.View.extend({
     return this;
   },
   
-  // change edit to pins modal
   edit: function(event) {
     event.preventDefault();
     var pin_id = $(event.target).attr("data-id");
     var pin = this.collection.get(pin_id);
     
-    var view = new PinterestClone.Views.PinEdit({ 
+    var view = new PinterestClone.Views.PinForm({ 
       model: pin,
-      collection: this.boards
+      type: "edit"
     });
     
     $("#modal-body").empty();
     $("#modal-body").append(view.render().$el);
-    $("#modal").modal("toggle");
+    $("#modal").modal("show");
   },
   
   // change submit
