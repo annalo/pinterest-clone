@@ -13,10 +13,12 @@ PinterestClone.Views.UserShow = Backbone.View.extend({
     });
     
     this.$el.html(renderedContent);
-    if(this.type === "pins") {
-      this.indexPins();
-    } else {
+    if(this.type === "boards") {
       this.indexBoards();
+    } else if(this.type === "pins") {
+      this.indexPins();
+    } else if(this.type === "settings") {
+      this.editUser();
     }
     return this;
   },
@@ -33,6 +35,13 @@ PinterestClone.Views.UserShow = Backbone.View.extend({
     var view = new PinterestClone.Views.PinsIndex({ 
       model: this.model,
       collection: this.pins 
+    });
+    this.$("#views").append(view.render().$el);
+  },
+
+  editUser: function() {
+    var view = new PinterestClone.Views.UserEdit({ 
+      model: this.model,
     });
     this.$("#views").append(view.render().$el);
   }

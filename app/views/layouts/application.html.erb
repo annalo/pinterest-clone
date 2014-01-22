@@ -5,7 +5,15 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  
+
+  <!-- pass in current user to client side -->
+  <script type="application/json" id="bootstrapped_current_user">
+    <%= current_user.to_json.html_safe %>
+  </script>
+</head>
+
+
+<body>
 <% if !current_user.nil? %>
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">   
     <ul class="nav navbar-nav">        

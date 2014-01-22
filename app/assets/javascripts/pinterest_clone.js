@@ -6,17 +6,23 @@ window.PinterestClone = {
 
   initialize: function() {
     console.log("Initializing!");
-    var pins = new PinterestClone.Collections.Pins();
+    var currentUser = JSON.parse($("#bootstrapped_current_user").html());
     var $rootEl = $("#content");
     
-    pins.fetch({
+    if(currentUser) {
+      var pins = new PinterestClone.Collections.Pins();
+      pins.fetch({
       success: function() {
         new PinterestClone.Routers.Router($rootEl, pins);
         Backbone.history.start();
       },
       
-      error: function() { console.log("No user logged in/fetch failed.") }
-    });
+      error: function() { console.log("Fetch failed.") }
+      });
+    } else {
+      
+      console.log("No user signed in.")
+    }
   }
 };
 

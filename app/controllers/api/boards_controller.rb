@@ -28,7 +28,7 @@ class Api::BoardsController < ApplicationController
   def update
     @board = Board.find(params[:id])
     if @board.update_attributes(params[:board])
-      render :json => @board
+      render "show"
     else
       render :json => @board.errors.full_messages
     end
