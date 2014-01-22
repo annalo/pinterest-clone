@@ -39,7 +39,7 @@ GEM
       ejs
       jquery-rails
       rails (>= 3.1)
-    bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.1.2)
     bootstrap-sass (3.0.3.0)
       sass (~> 3.2)
     builder (3.0.4)
@@ -70,7 +70,7 @@ GEM
       activerecord (>= 3.0, < 4.0)
     hike (1.2.3)
     i18n (0.6.9)
-    jbuilder (1.5.3)
+    jbuilder (2.0.2)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
     journey (1.0.4)
@@ -92,7 +92,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     multi_json (1.8.4)
-    newrelic_rpm (3.7.1.182)
+    newrelic_rpm (3.7.1.188)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     paperclip (3.5.2)
@@ -164,21 +164,21 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk
-  backbone-on-rails
-  bcrypt-ruby
-  bootstrap-sass
+  aws-sdk (~> 1.32.0)
+  backbone-on-rails (~> 1.1.0.0)
+  bcrypt-ruby (~> 3.1.2)
+  bootstrap-sass (~> 3.0.3.0)
   coffee-rails (~> 3.2.1)
-  ejs
-  figaro
-  friendly_id
-  jbuilder
-  jquery-rails
-  kaminari
+  ejs (~> 1.1.1)
+  figaro (~> 0.7.0)
+  friendly_id (~> 4.0.10)
+  jbuilder (~> 2.0.2)
+  jquery-rails (~> 3.0.4)
+  kaminari (~> 0.15.1)
   letter_opener
-  newrelic_rpm
-  paperclip
-  pg
+  newrelic_rpm (~> 3.7.1.188)
+  paperclip (~> 3.5.2)
+  pg (~> 0.17.1)
   pry-rails
   rails (= 3.2.15)
   rails_12factor
