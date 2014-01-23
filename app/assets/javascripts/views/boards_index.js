@@ -6,14 +6,12 @@ PinterestClone.Views.BoardsIndex = Backbone.View.extend({
   template: JST["boards/index"],
   
   events: {
-    "click #board-edit": "edit"
+    "click #board-edit": "edit",
+    "click #new-board": "new"
   },  
   
   render: function() {
-    var renderedContent = this.template({
-      user: this.model,
-      boards: this.collection 
-    });
+    var renderedContent = this.template({ boards: this.collection });
     this.$el.html(renderedContent);
     return this;
   },
@@ -27,5 +25,15 @@ PinterestClone.Views.BoardsIndex = Backbone.View.extend({
     $("#modal-body").empty();
     $("#modal-body").append(view.render().$el);
     $("#modal").modal("toggle");
-  }
+  },
+
+  new: function() {
+    event.preventDefault();
+    var newBoard = new PinterestClone.Models.Board();    
+    var view = new PinterestClone.Views.BoardForm({ model: newBoard });
+    
+    $("#modal-body").empty();
+    $("#modal-body").append(view.render().$el);
+    $("#modal").modal("toggle");
+  },
 });

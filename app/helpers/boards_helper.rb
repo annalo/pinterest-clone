@@ -1,5 +1,5 @@
 module BoardsHelper
-	def current_users_board?(board)
+	def owned?(board)
 		board.user == current_user
 	end
 end

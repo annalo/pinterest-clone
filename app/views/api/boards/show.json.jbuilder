@@ -1,4 +1,5 @@
 json.(@board, :id, :name, :description, :category_id, :user_id)
+json.owned owned?(@board)
 
 json.user do
   json.(@board.user, :id, :fname, :lname, :email)

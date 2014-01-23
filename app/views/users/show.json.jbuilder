@@ -1,6 +1,10 @@
 json.(@user, :id, :fname, :lname, :email)
 json.current_user current_user?(@user)
-json.boards(@user.boards, :id, :name, :description, :user_id)
+
+json.boards @user.boards do |board|
+	json.(board, :id, :name, :description, :user_id)
+	json.owned owned?(board)
+end
 
 json.pins @boards_pins do |boards_pin|
 	json.(boards_pin, :id, :pin_id, :board_id, :description)

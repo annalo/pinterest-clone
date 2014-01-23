@@ -2,7 +2,7 @@ class Api::BoardsController < ApplicationController
   before_filter :require_current_user!
   
   def index
-    @boards = current_user.boards
+    @boards = Board.all
     render "index"
   end
   

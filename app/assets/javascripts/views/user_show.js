@@ -24,10 +24,7 @@ PinterestClone.Views.UserShow = Backbone.View.extend({
   },
   
   indexBoards: function() {
-    var view = new PinterestClone.Views.BoardsIndex({ 
-      model: this.model,
-      collection: this.boards 
-    });
+    var view = new PinterestClone.Views.BoardsIndex({ collection: this.boards });
     this.$("#views").append(view.render().$el);
   },
   
