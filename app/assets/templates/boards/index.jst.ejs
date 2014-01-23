@@ -1,48 +1,49 @@
-<div class="row">
-  <div class="col-sm-12">
+<div class="container-fluid" style="padding-top: 7px">
+<ul id="board-tiles">
+
+  <li id="new-board-wrapper">
+    <a href="#" id="new-board">
+      <div class="caption">
+        <h5>Create a Board</h5>
+      </div>
+      <div style="height: 255px"></div>
+    </a>
+  </li>
+  
+  <% boards.each(function(board) { %>
+    <li>
+        <a href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>">
+        <!-- board caption / img -->
+        <div class="caption">
+          <h5><%= board.escape("name") %></h5>
+        </div>
+        <div style="height: 211px">
+          <img data-src="" alt="..." class="img-responsive">
+        </div>
+      </a>
+
+      <!-- check for current user -->
+      <% if(board.get("owned")) { %>
+
+        <!-- edit board -->
+        <p><button class="btn btn-default" id="board-edit-button" data-id="<%= board.id %>">Edit</button></p>
+      <% } %>
+
+    </li>
     
-    <div class="row">
-
-      <!-- create new board -->
-      <div class="col-sm-6 col-md-2 text-center">
-        <a href="#" id="new-board"><div class="thumbnail" id="new-board-wrapper">
-          <div class="caption">
-            <h5>Create a Board</h5>
-            <div style="height: 255px"></div>
-          </div>
-        </div></a>
-      </div>
-      
-      <!-- boards -->
-      <% boards.each(function(board) { %>
-      <div class="col-sm-6 col-md-2 text-center">
-        
-        <a href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>"><div class="thumbnail">
-          <div class="caption">
-            <h5><%= board.escape("name") %></h5>
-          </div>
-          <div style="height: 211px">
-            <img data-src="" alt="..." class="img-responsive">
-          </div>
-          
-          <!-- check for current user -->
-          <% if(board.get("owned")) { %>
-
-            <!-- edit board -->
-            <p><button class="btn btn-default" id="board-edit-button" data-id="<%= board.id %>">Edit</button></p>
-          <% } %>
-
-        </div></a>
-        
-      </div>
-
     <% }); %>
-  </div>
+  </ul>
 </div>
 
-
-
-
-
-
-
+<script>
+$(document).imagesLoaded(function() {
+  // Call the layout function.
+  $('#board-tiles li').wookmark({
+    align: "center",
+    autoResize: true, // This will auto-update the layout when the browser window is resized.
+    container: $('#board-tiles'), // Optional, used for some extra CSS styling
+    offset: 10, // Optional, the distance between grid items
+    itemWidth: 236 // Optional, the width of a grid item
+  });
+});
+</script>

@@ -1,43 +1,23 @@
-<div class="row" style="margin: 0 auto">
-  <div class="profile-header-wrapper">
-    <div class="user-profile-header">
-      <h1><%= user.escape("fname") %></h1>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-sm-12">
-    <div 
-      class="navbar navbar-static-top" 
-      id="user-nav"
-      role="navigation"
-      style="margin-bottom: 10px">
-  
-      <div class="btn-group btn-group-lg user-nav">
-        <button type="button" class="btn btn-default" id="button-boards">
-          Boards
-        </button>
-        
-        <button type="button" class="btn btn-default" id="button-pins">
-          Pins
-        </button>
-        <button type="button" class="btn btn-default" id="button-likes">
-          Likes
-        </button>
+<div id="blue">
+  <div class="container">
+    <div class="row centered">
+      <div class="col-lg-8 col-lg-offset-2">
+        <h3><%= user.escape("fname") %></h3>
+        <h4>asdfasdf</h4>
       </div>
     </div>
   </div>
 </div>
 
-<div id="views"></div>
-
-<script>
-  $('#button-boards').click(function() {
-    window.location="#/users/<%= user.id %>/boards";
-  });
+<div class="nav nav-tabs nav-justified" style="padding: 0 700px 0 700px">
+  <li id="link-boards">
+    <a href="#/users/<%= user.id %>/boards">Boards</a>
+  </li>
   
-  $('#button-pins').click(function() {
-    window.location="#/users/<%= user.id %>/pins";
-  });
-</script>
+  <li id="link-pins">
+    <a href="#/users/<%= user.id %>/pins">Pins</a>
+  </li>
+</div>
+
+
+<div id="views"></div>

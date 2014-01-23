@@ -1,17 +1,56 @@
-<div class="jumbotron text-center">
-  <h1>CorkBoard</h1>
-  
-  <p style="margin-bottom:30px">
-  <h3>Save all the stuff you love!!</h3>
-  
-  <p style="margin-top:30px; margin-bottom:30px;">
-  <a class="btn btn-primary" 
-     href="<%= new_user_url %>" 
-     role="button">Sign Up</a>
-  </p>
-  
-  Already have an account? <%= link_to "Log in now", new_session_url %>
+<div id="headerwrap">
+	<div class="container">
+		<div class="row centered">
+			<div class="col-lg-8 col-lg-offset-2">
+			  <h2>C <i class="fa fa-circle"></i> RKBOARD</h2>
+			  
+			  <p style="margin-bottom:30px">
+			  <h3>Save all the stuff you <b>love</b>!!</h3>
+			  </p>
+			  
+			  <p style="margin-top:30px; margin-bottom:30px;">
+			  <a class="btn btn-primary" 
+			     href="<%= new_user_url %>" 
+			     role="button">Sign Up</a>
+			  </p>
+			  
+			  Already have an account? <%= link_to "Log in now", new_session_url %>
+			  <br>
+			  Or sign in as a <b><a href="#" id="example-sign-in">guest</a></b>
+		  </div>
+	  </div>
+  </div>
 </div>
 
-<div class="bottom-section">
-  
+
+<!-- example account login -->
+<form id="sign-in-form" action="<%= session_url %>" method="POST">
+  <input 
+    type="hidden" 
+    name="authenticity_token" 
+    value="<%= form_authenticity_token %>">
+
+    <input
+      class="form-control"
+      type="hidden" 
+      id="email" 
+      name="user[email]"
+      value="amanda@email.com">
+
+    <input 
+      class="form-control"
+      type="hidden" 
+      id="password" 
+      name="user[password]"
+      value="password">
+</form>
+
+<div class="bottom-section"></div>
+
+<script>
+	$("#example-sign-in").click(function(event) {
+		debugger;
+		event.preventDefault();
+		$("#sign-in-form").trigger("submit");
+	})
+</script>

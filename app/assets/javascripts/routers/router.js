@@ -22,7 +22,10 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
     var boards = new PinterestClone.Collections.Boards();
     boards.fetch({
       success: function() {
-        var view = new PinterestClone.Views.BoardsIndex({ collection: boards });
+        var view = new PinterestClone.Views.BoardsIndex({ 
+          collection: boards,
+          type: "all"
+        });
         that._swapView(view);
       }
     })

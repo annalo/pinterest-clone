@@ -1,12 +1,22 @@
 PinterestClone.Views.BoardsIndex = Backbone.View.extend({
-  initialize: function() {
+  template0: JST["boards/index"],
+  template1: JST["boards/all"],
+
+  initialize: function(options) {
+    this.type = options.type;
+
+    // determines which template to render
+    if(this.type === "user") {
+      this.template = this['template0'];
+    } else {
+      this.template = this['template1'];
+    }
+
     this.listenTo(this.collection, "change add remove", this.render);
   },
   
-  template: JST["boards/index"],
-  
   events: {
-    "click #board-edit": "edit",
+    "click #board-edit-button": "edit",
     "click #new-board": "new"
   },  
   
@@ -22,8 +32,8 @@ PinterestClone.Views.BoardsIndex = Backbone.View.extend({
     var board = this.collection.get(board_id);
     var view = new PinterestClone.Views.BoardForm({ model: board });
     
-    $("#modal-body").empty();
-    $("#modal-body").append(view.render().$el);
+    $(".modal-content").empty();
+    $(".modal-content").append(view.render().$el);
     $("#modal").modal("toggle");
   },
 
@@ -32,8 +42,8 @@ PinterestClone.Views.BoardsIndex = Backbone.View.extend({
     var newBoard = new PinterestClone.Models.Board();    
     var view = new PinterestClone.Views.BoardForm({ model: newBoard });
     
-    $("#modal-body").empty();
-    $("#modal-body").append(view.render().$el);
+    $(".modal-content").empty();
+    $(".modal-content").append(view.render().$el);
     $("#modal").modal("toggle");
   },
 });

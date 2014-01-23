@@ -22,8 +22,8 @@ PinterestClone.Views.Header = Backbone.View.extend({
     var newBoard = new PinterestClone.Models.Board();    
     var view = new PinterestClone.Views.BoardForm({ model: newBoard });
     
-    $("#modal-body").empty();
-    $("#modal-body").append(view.render().$el);
+    $(".modal-content").empty();
+    $(".modal-content").append(view.render().$el);
     $("#modal").modal("toggle");
   },
 
@@ -38,8 +38,8 @@ PinterestClone.Views.Header = Backbone.View.extend({
       var view = new PinterestClone.Views.PinUpload({ model: newPin });
     }
 
-    $("#modal-body").empty();
-    $("#modal-body").append(view.render().$el);
+    $(".modal-content").empty();
+    $(".modal-content").append(view.render().$el);
     $("#modal").modal("toggle");
   },
 

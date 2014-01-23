@@ -17,10 +17,6 @@ PinterestClone.Views.BoardForm = Backbone.View.extend({
     var type = $(event.target).attr("data-id");
     
     $("#modal").modal("hide");
-    
-    if(type === "new") {
-      window.history.back();
-    }
   },
   
   submit: function(event) {

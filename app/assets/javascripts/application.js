@@ -18,6 +18,7 @@
 //= require backbone
 //= require pinterest_clone
 //= require bootstrap
+//= require Chart
 //= require jquery.masonry.min
 //= require jquery.wookmark
 //= require jquery.serializeJSON.min

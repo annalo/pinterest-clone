@@ -2,25 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.col-md-2 {
-  width: 236px;
-  padding: 0;
-  margin: 5px;
-}
-
-.thumbnail {
-  margin-bottom: 7px;
+#new-board-wrapper {
   border-radius: 3px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 2px dashed #bbbbbb;
+  color: #888888;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 0 1px 1px #ffffff;
   width: 236px;
   height: 284px;
   
-  .caption {
-    padding: 0;
+  a {
+    font-size: 18px;
+    font-weight: 900;
+    color: #333333;
   }
+}
+
+#board-tiles {
+  padding: 0;
+  position: relative; 
+  list-style-type: none; 
+  margin: 0 10px 0 10px;
+  border-radius: 3px;
   
-  h5 {
-    margin: 5px 0 5px 0;
+  p {
+    margin: 0;
   }
+}
+
+#board-tiles li {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  width: 236px;        
+  display: none;
+  padding-bottom: 7px;
+  text-align: center;
 }
 
 #board-edit-button {

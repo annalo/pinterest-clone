@@ -6,6 +6,8 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
   <!-- pass in current user to client side -->
   <script type="application/json" id="bootstrapped_current_user">
     <%= current_user.to_json.html_safe %>
@@ -14,15 +16,21 @@
 </head>
 
 <body>
-
-<div class="container-fluid">
-  <%= yield %>
+<!-- header -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="header">   
 </div>
+
+<%= yield %>
 
 
 <!-- modal -->
 
 <%= render "/layouts/modal" %>
 
+<!-- footer -->
+<div class="navbar navbar-fixed-bottom" id="f">
+	<div class="container">
+	</div>
+</div>
 </body>
 </html>

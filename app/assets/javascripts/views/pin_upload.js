@@ -35,17 +35,13 @@ PinterestClone.Views.PinUpload = Backbone.View.extend({
   
   submit: function(event) {
     event.preventDefault();
-    var attrs = $(event.currentTarget).serializeJSON();
-    
-    this.model.set();
-
     var view = new PinterestClone.Views.PinForm({ 
       model: this.model,
       type: "new"
     });
 
-    $("#modal-body").empty();
-    $("#modal-body").append(view.render().$el);
+    $(".modal-content").empty();
+    $(".modal-content").append(view.render().$el);
     $("#modal").modal("show");
   }
 });
