@@ -1,0 +1,98 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">   
+  <ul class="nav navbar-nav">        
+    <li><div class="btn-group">
+      <button 
+          type="button" 
+          class="btn btn-default navbar-btn dropdown-toggle" 
+          data-toggle="dropdown">
+        <span class="glyphicon glyphicon-align-justify"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="#"><i class="icon-pencil"></i> categories??</a>
+        </li>
+        <li>
+          <a href="#"><i class="icon-trash"></i> sdf</a>
+        </li>
+        <li>
+          <a href="#"><i class="icon-ban-circle"></i> sdf</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="#"><i class="i"></i> asdf</a>
+        </li>
+      </ul>
+    </div></li>
+  </ul>
+  
+  <form 
+    class="navbar-form navbar-left" 
+    role="search" 
+    style="padding: 0 4px 0 4px">
+    <div class="form-group">
+      <input 
+          type="text" 
+          class="form-control"
+          id="search-form"
+          placeholder="What are you into?"
+          style="width: 300px">
+    </div>
+  </form>
+  
+  <div id="navbar-brand-center">
+    <a class="navbar-brand" href="/">PinterestClone</a>
+  </div>
+  
+  <ul class="nav navbar-nav navbar-right">      
+    <li><div class="btn-group">
+      <button 
+          type="button" 
+          class="btn btn-default navbar-btn dropdown-toggle" 
+          data-toggle="dropdown">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
+      <ul class="dropdown-menu">
+        
+        <li><a href="#" id="new-pin" data-type="upload">
+            <span class="glyphicon glyphicon-arrow-up"></span> Upload a Pin
+          </a></li>
+          
+        <li><a href="#">
+            <span class="glyphicon glyphicon-globe"></span> Add from a Website
+          </a></li>
+          
+        <li><a href="#" id="new-board">
+            <span class="glyphicon glyphicon-th-large"></span> Create a Board
+          </a></li>
+          
+        <li class="divider"></li>
+        <li>
+          <a href="#"><i class="i"></i> message??</a>
+        </li>
+      </ul>
+    </div></li>
+    <li></li>
+    <li><div class="btn-group">
+      <button 
+          type="button" 
+          class="btn btn-default navbar-btn dropdown-toggle user-button" 
+          data-toggle="dropdown">
+        <span class=""></span> <%= user.fname %>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#/users/<%= user.id %>">
+          Your Profile & Pins
+        </a></li>
+        <li><a href="#">Settings</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Find Friends</a></li>
+        <li><a href="#/boards">Browse Boards</a></li> 
+        <li class="divider"></li>
+        <li><a href="#">Visit Help Center</a></li>
+        <li class="divider"></li>
+        <!-- link to log out -->
+        <li><a href="/session" data-method="delete" rel="nofollow">Log Out</a></li> 
+      </ul>
+    </div></li>
+  </ul>
+</nav>
