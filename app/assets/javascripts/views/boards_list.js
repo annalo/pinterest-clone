@@ -48,8 +48,12 @@ PinterestClone.Views.BoardsList = Backbone.View.extend({
 	submit: function(event) {
 		event.preventDefault();
 		var name = $("#board_name").val();
-		this.boards.create({ name: name });
 
-		this.reRender();
+		if(name === "") {
+      $("#new-board-group").addClass("has-error");
+		} else {
+			this.boards.create({ name: name });
+			this.reRender();
+		}
 	}
 });
