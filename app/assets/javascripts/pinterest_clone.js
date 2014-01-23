@@ -10,13 +10,18 @@ window.PinterestClone = {
     var $rootEl = $("#content");
     
     if(currentUser) {
-      // render header
-      var header = new PinterestClone.Views.Header({ model: currentUser });
-      $("#header").html(header.render().$el);
 
       var pins = new PinterestClone.Collections.BoardsPins();
       pins.fetch({
       success: function() {
+        // render header
+        var header = new PinterestClone.Views.Header({ 
+          model: currentUser,
+          collection: pins
+        });
+        $("#header").html(header.render().$el);
+
+        // start router
         new PinterestClone.Routers.Router($rootEl, pins);
         Backbone.history.start();
       },

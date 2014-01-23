@@ -6,9 +6,7 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "home",
-    "pins/new(/:type)": "newPin",
     "pins/:id(/:type)": "showPin",
-    "boards/new": "newBoard",
     "users/:id(/:type)": "showUser",
     "users/:user_id/boards/:id(/:type)": "showBoard"
   },
@@ -16,36 +14,6 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
   home: function() {
     var view = new PinterestClone.Views.PinsIndex({ collection: this.pins });
     this._swapView(view);
-  },
-
-  newBoard: function() {
-    event.preventDefault();
-    var newBoard = new PinterestClone.Models.Board();    
-    var view = new PinterestClone.Views.BoardForm({ model: newBoard });
-    
-    $("#modal-body").empty();
-    $("#modal-body").append(view.render().$el);
-    $("#modal").modal("toggle");
-  },
-  
-  newPin: function(type) {
-    event.preventDefault();
-    var newPin = new PinterestClone.Models.Pin();
-    if(type === "web") {
-      var view = new PinterestClone.Views.PinWeb({ 
-        model: newPin,
-        collection: this.pins
-      });
-    } else if(type === "upload") {
-      var view = new PinterestClone.Views.PinUpload({ 
-        model: newPin,
-        collection: this.pins
-      });
-    }
-
-    $("#modal-body").empty();
-    $("#modal-body").append(view.render().$el);
-    $("#modal").modal("toggle");
   },
   
   showBoard: function(user_id, id, type) {
