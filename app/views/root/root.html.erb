@@ -1,7 +1,9 @@
+<div id="header">
+</div>
+
 <div id="content">
-  <% if current_user.nil? %>
-  
-  <%= render "home" %>
-  
-  <% end %>
+
+<% if !current_user %>
+	<%= render "home" %>
+<% end %>
 </div>
