@@ -1,4 +1,8 @@
 PinterestClone.Views.Home = Backbone.View.extend({
+  initialize: function() {
+    this.listenTo(this.collection, "change", this.render)
+  },
+
   events: {
     "click #pin-add-button": "add"
   },
@@ -13,16 +17,18 @@ PinterestClone.Views.Home = Backbone.View.extend({
   
   add: function(event) {
     event.preventDefault();
-    var pin_id = $(event.currentTarget).val();
-    var pin = this.collection.get(pin_id);
+    var pinId = $(event.currentTarget).val();
+    var pin = this.collection.get(pinId);
     var attrs = pin.attributes
 
-    var newPin = new PinterestClone.Models.Pin(attrs);
-    newPin.unset("board_id", { silent: true });
-    newPin.unset("id", { silent: true });
+    var boardsPin = new PinterestClone.Models.BoardsPin({
+      pin_id: pinId,
+      description: attrs.description
+    });
 
     var view = new PinterestClone.Views.PinForm({
-      model: newPin,
+      model: pin,
+      boardsPin: boardsPin,
       type: "new"
     });
 

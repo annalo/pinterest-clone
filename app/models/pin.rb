@@ -1,7 +1,5 @@
 class Pin < ActiveRecord::Base
-  attr_accessible :description, :img, :url, :board_id
-
-  validates :board_id, :presence => true
+  attr_accessible :img, :url
   
   has_attached_file :img, :styles => {
     :grid => "236x236>",
@@ -9,5 +7,6 @@ class Pin < ActiveRecord::Base
     :small => "50x50#"
   }
   
-  belongs_to :board
+  has_many :boards_pins
+  has_many :boards, :through => :boards_pins, :source => :board
 end

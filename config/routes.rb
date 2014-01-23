@@ -5,7 +5,7 @@ PinterestClone::Application.routes.draw do
   namespace :api, :defaults => { :format => :json } do
     resources :boards
     resources :pins
-    resources :boards_pins, :only => [:create, :destroy]
+    resources :boards_pins
   end
   
   root :to => "root#root"

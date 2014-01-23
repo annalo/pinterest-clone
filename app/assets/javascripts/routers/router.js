@@ -14,7 +14,7 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
   },
   
   home: function() {
-    var view = new PinterestClone.Views.Home({ collection: this.pins });
+    var view = new PinterestClone.Views.PinsIndex({ collection: this.pins });
     this._swapView(view);
   },
 

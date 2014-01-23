@@ -16,7 +16,12 @@ PinterestClone.Views.BoardsList = Backbone.View.extend({
 	    this.boards.fetch({
 	    	success: function() {
 				var renderedContent = that.template({ boards: that.boards });
+				var pin_board_id = that.model.get("board_id")
+
 				that.$el.html(renderedContent);
+
+				// select current board in dropdown
+				this.$('option[value =' + pin_board_id + ']').attr('selected', 'selected')
     	}
     });
 		return this;
@@ -26,6 +31,7 @@ PinterestClone.Views.BoardsList = Backbone.View.extend({
 		event.preventDefault();
 		var newBoard = new PinterestClone.Models.Board();
 		var renderedContent = JST["boards/list_new"]({ board: newBoard });
+
 		this.$el.html(renderedContent);
 	},
 

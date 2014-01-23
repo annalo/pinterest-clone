@@ -3,7 +3,9 @@
 one:
   board_id: 1
   pin_id: 1
+  description: MyString
 
 two:
   board_id: 1
   pin_id: 1
+  description: MyString

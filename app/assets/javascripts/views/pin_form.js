@@ -5,7 +5,7 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
   
   initialize: function(options) {
     this.type = options.type;
-    
+
     // determines which template to render
     if(this.type === "new") {
       this.template = this['template0'];
@@ -32,7 +32,7 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
     var renderedContent = this.template({ pin: this.model });
     this.$el.html(renderedContent);
     
-    var listView = new PinterestClone.Views.BoardsList();
+    var listView = new PinterestClone.Views.BoardsList({ model: this.model });
     this.$("#boards-list-wrapper").append(listView.render().$el);
     
     return this;
@@ -46,27 +46,76 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
     var that = this;
     event.preventDefault();
     var attrs = this.$el.serializeJSON().pin;
+    var newBoardId = parseInt(attrs.board_id);
 
-    this.model.set(attrs);
-    this.model.save({}, {      
-      success: function(model) {
-        $("#modal").modal("hide");
-        $(".modal-backdrop").remove();
-        
-        // if new pin, redirect to user board show page
-        if(that.type === "new") {
-          var board = model.get("board");
-          Backbone.history.navigate(
-            "#/users/" + board.get("user_id") + "/boards/" + board.id, 
-            { trigger: true });
+    // if pinning/editing a pin
+    if(this.model.name == "boardsPin") {
+      var origBoardId = this.model.get("board_id");
 
-        // if editing pin, close modal (back to original page)
-        } else {
-          $("#modal").modal("hide");
-          $(".modal-backdrop").remove();
+      this.model.set({ 
+        board_id: newBoardId,
+        description: attrs.description
+      });
+
+      this.model.save({}, {
+        success: function(pin) {
+
+          // keep original board
+          if(origBoardId == pin.get("board_id")) {
+
+            // close modal (back to original page)
+            $("#modal").modal("hide");
+            $(".modal-backdrop").remove();
+
+            // change board
+          } else {
+            $("#modal").modal("hide");
+            $(".modal-backdrop").remove();
+            
+            Backbone.history.navigate(
+              "#/users/" + pin.get("user").id + "/boards/" + pin.get("board_id"), 
+              { trigger: true });
+          }
         }
-      }
-    });
+      });
+
+    // if uploading a pin
+    } else {
+      this.model.set({ description: attrs.description });
+      this.model.save({}, {      
+        success: function(pin) {
+
+          // upon successful creation of pin, create boards_pins relation
+          var newBoardsPin = new PinterestClone.Models.BoardsPin({
+            board_id: attrs.board_id,
+            pin_id: pin.id,
+            description: pin.get("description")
+          });
+          // save join
+          newBoardsPin.save({}, {
+            success: function(boardsPin) {
+              $("#modal").modal("hide");
+              $(".modal-backdrop").remove();
+              
+              // redirect to user board show page
+              Backbone.history.navigate(
+                "#/pins/" + boardsPin.id, 
+                { trigger: true });
+            },
+
+            // if fail, delete pin
+            error: function() {
+              that.model.destroy({
+                success: function() {
+                  $("#modal").modal("hide");
+                  $(".modal-backdrop").remove();
+                }
+              })
+            }
+          });
+        }
+      });
+    }
   },
   
   delete: function() {

@@ -18,11 +18,14 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    @pins = @user.board
   end
   
   def show
     if params.include?(:id)
       @user = User.find(params[:id])
+      @boards_pins = users_pins(@user)
+      
       respond_to do |format|
         format.json { render "show" }
       end

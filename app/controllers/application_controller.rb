@@ -4,4 +4,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include PinsHelper
   include BoardsHelper
+  include UsersHelper
+  include BoardsPinsHelper
 end

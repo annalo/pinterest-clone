@@ -10,7 +10,7 @@ window.PinterestClone = {
     var $rootEl = $("#content");
     
     if(currentUser) {
-      var pins = new PinterestClone.Collections.Pins();
+      var pins = new PinterestClone.Collections.BoardsPins();
       pins.fetch({
       success: function() {
         new PinterestClone.Routers.Router($rootEl, pins);

@@ -7,11 +7,12 @@ class Api::PinsController < ApplicationController
   
   def show
     @pin = Pin.find(params[:id])
+    @boards_pins = @pin.boards_pins.first
     render "show"
   end
   
   def create
-    @pin = current_user.pins.new(params[:pin])
+    @pin = Pin.new(params[:pin])
     if @pin.save
       render "show"
     else
