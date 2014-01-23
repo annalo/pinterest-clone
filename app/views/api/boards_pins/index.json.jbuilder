@@ -1,5 +1,6 @@
 json.array!(@boards_pins) do |boards_pin|
   json.(boards_pin, :id, :board_id, :pin_id, :description)
+  	json.updated_at boards_pin.updated_at.to_i
 	json.img boards_pin.pin.img
 	json.url boards_pin.pin.url
 	json.pinned pinned?(boards_pin)

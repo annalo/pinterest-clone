@@ -11,8 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery.validate
 //= require jquery_ujs
+//= require jquery.validate
+//= require additional-methods
 //= require underscore
 //= require backbone
 //= require pinterest_clone

@@ -93,13 +93,13 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
           });
           // save join
           newBoardsPin.save({}, {
-            success: function(boardsPin) {
+            success: function(model) {
               $("#modal").modal("hide");
               $(".modal-backdrop").remove();
               
               // redirect to user board show page
               Backbone.history.navigate(
-                "#/pins/" + boardsPin.id, 
+                "#/users/" + model.get("user").id + "/boards/" + model.get("board_id"), 
                 { trigger: true });
             },
 

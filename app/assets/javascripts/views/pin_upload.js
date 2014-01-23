@@ -3,7 +3,7 @@ PinterestClone.Views.PinUpload = Backbone.View.extend({
   },
   
   events: {
-    "submit form": "submit",
+    "submit form#upload-pin-form": "submit",
     "change input[type=file]": "encodeFile"
   },
   
