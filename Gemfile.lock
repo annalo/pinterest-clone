@@ -55,7 +55,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    commonjs (0.2.7)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -86,11 +85,6 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.2)
       addressable (~> 2.3)
-    less (2.4.0)
-      commonjs (~> 0.2.7)
-    less-rails (2.4.2)
-      actionpack (>= 3.1)
-      less (~> 2.4.0)
     letter_opener (1.2.0)
       launchy (~> 2.2)
     mail (2.5.4)
@@ -162,12 +156,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootswatch-rails (3.0.3.0)
-      execjs (>= 1.4.0)
-      less-rails (>= 2.3)
-      railties (>= 3.1)
-    twitter-bootswatch-rails-helpers (3.0.0.1)
-      twitter-bootswatch-rails (~> 3.0.0)
     tzinfo (0.3.38)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
@@ -198,6 +186,4 @@ DEPENDENCIES
   rails (= 3.2.15)
   rails_12factor
   sass-rails (~> 3.2.3)
-  twitter-bootswatch-rails (~> 3.0.3)
-  twitter-bootswatch-rails-helpers
   uglifier (>= 1.0.3)

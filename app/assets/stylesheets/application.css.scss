@@ -16,87 +16,11 @@
 @import "bootstrap/glyphicons";
 @import "masonry";
 
-html {
-  font-family: sans-serif;
-}
-
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  padding-top: 50px;
-  background-color: #e3e3e3;
+  padding-top: 60px;
 }
 
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-textarea {
-  font-family: inherit;
-}
-
-select optgroup {
-  font-family: inherit;
-}
-
-.navbar-fixed-top {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1),0 1px 0 0 rgba(0, 0, 0, 0.1);
-  -webkit-transform: translateZ(0);
-  background: #ffffff;
-  height: 44px;
-  position: fixed;
-  z-index: 670;
-  padding-left: 100px;
-  padding-right: 110px;
-  margin-bottom: 0;
-}
-
-.navbar-fixed-top .btn {
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
-  color: #5f5f5f;
-  cursor: pointer;
-  font-weight: bold;
-  text-shadow: 0 1px #ffffff;
-  white-space: nowrap;
-  
-  &:hover,
-  &:focus {
-    color: white;
-    background-color: #C92228;
-    text-decoration: none;
-  }
-}
-
-.navbar-default .navbar-brand {
-  color: #C92228;
-}
-
-#navbar-brand-center {
-  width: 150px; 
-  margin: 0 auto; 
-  float: none;
-}
-
-.user-button {
-  width: 160px;
-}
-
-.form-actions {
-  display: block;
-  margin: 0;
-  width: auto;
-  text-align: right;
-}
-
-.top-section {
-  text-align: center;
-}
-
+// hidden buttons
 input.hidden {
   width: 0px;
   height: 0px;
@@ -106,48 +30,10 @@ input.hidden {
   border: 0px;
 }
 
+// main container
 .container {
   width: auto;
   padding: 0;
   margin: 10px;
 }
 
-.col-sm-12 {
-  padding: 0 21px 0 21px;
-}
-
-.btn-default {
-  background-color: #f7f7f7;
-  background: -webkit-linear-gradient( #ffffff, #f0f0f0);
-  background: linear-gradient( #ffffff, #f0f0f0);
-  border: 1px solid #cccccc;
-  color: #5f5f5f;
-  cursor: pointer;
-  font-weight: bold;
-  text-shadow: 0 1px #ffffff;
-  white-space: nowrap;
-  font-size: 12px;
-  padding: 8px 14px 7px;
-}
-
-.btn-primary {
-  -webkit-font-smoothing: antialiased;
-  background-image: -webkit-linear-gradient( #e3262e, #ab171e);
-  background-image: linear-gradient( #e3262e, #ab171e);
-  background-color: #ab171e;
-  border-bottom-color: #820a0f;
-  border-left-color: #9a1015;
-  border-right-color: #9a1015;
-  border-top-color: #af151b;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34);
-  color: #ffffff;
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.11);
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.row {
-  padding: 0 10px 0 10px;
-}

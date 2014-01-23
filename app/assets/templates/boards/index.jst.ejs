@@ -26,11 +26,10 @@
           </div>
           
           <!-- check for current user -->
-          <% if(boards.get("owned")) { %>
+          <% if(board.get("owned")) { %>
 
             <!-- edit board -->
-            <p><button class="btn btn-default" id="board-edit" data-id="<%= board.id %>" style="width: 216px">Edit</button></p>
-
+            <p><button class="btn btn-default" id="board-edit-button" data-id="<%= board.id %>">Edit</button></p>
           <% } %>
 
         </div></a>

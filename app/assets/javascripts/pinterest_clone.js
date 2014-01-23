@@ -8,7 +8,6 @@ window.PinterestClone = {
     console.log("Initializing!");
     var currentUser = JSON.parse($("#bootstrapped_current_user").html());
     var $rootEl = $("#content");
-    
     if(currentUser) {
 
       var pins = new PinterestClone.Collections.BoardsPins();

@@ -2,45 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#board-container {
-  margin: 0 auto;
-}
-
-#new-board-wrapper {
-  border-radius: 3px;
-  background: rgba(0, 0, 0, 0.03);
-  border: 2px dashed #bbbbbb;
-  color: #888888;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: bold;
-  text-shadow: 0 1px 1px #ffffff;
-  width: 236px;
-  height: 284px;
-  
-  a {
-    font-size: 18px;
-    font-weight: 900;
-    color: #333333;
-  }
-}
-
-#board-image-container {
-  width: 216px;
-  height: 200px;
-  display: inline-block;
-  position: relative;
-}
-
-// navbar header hover color
-.navbar .user-header ul {
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    background-color: white;
-  }
-}
-
 .col-md-2 {
   width: 236px;
   padding: 0;
@@ -50,8 +11,6 @@
 .thumbnail {
   margin-bottom: 7px;
   border-radius: 3px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
-  background: #ffffff;
   width: 236px;
   height: 284px;
   
@@ -62,4 +21,8 @@
   h5 {
     margin: 5px 0 5px 0;
   }
+}
+
+#board-edit-button {
+  width: 216px;
 }

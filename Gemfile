@@ -27,8 +27,6 @@ gem 'newrelic_rpm', '~> 3.7.1.188'
 gem 'paperclip', '~> 3.5.2'
 gem 'pg', '~> 0.17.1'
 gem 'rails_12factor'
-gem 'twitter-bootswatch-rails', '~> 3.0.3'
-gem 'twitter-bootswatch-rails-helpers'
 
 gem 'kaminari', '~> 0.15.1'
 gem 'friendly_id', '~> 4.0.10'

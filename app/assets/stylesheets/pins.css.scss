@@ -15,18 +15,11 @@
 }
 
 #tiles li {
-  border-radius: 3px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
-  background: #ffffff;
   width: 236px;        
   display: none;
   padding-bottom: 40px;
   text-align: center;
-}
-
-#pin-wrapper {
-  width: 236px;        
-  padding: 5px;
 }
 
 #pin-edit-button {
