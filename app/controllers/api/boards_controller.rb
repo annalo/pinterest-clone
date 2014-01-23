@@ -37,6 +37,7 @@ class Api::BoardsController < ApplicationController
   def destroy
     @board = Board.find(params[:id])
     @board.destroy
+    @board.boards_pins.destroy_all
     render :json => @board
   end
 end

@@ -1,12 +1,10 @@
 PinterestClone.Views.BoardForm = Backbone.View.extend({
   events: { 
     "click #cancel": "closeModal",
-    "click #submit-board": "submit",
+    "submit form#board-form": "submit",
     "click #delete-board": "delete"
   },
-  
-  tagName: "form",
-  
+    
   template: JST["boards/form"],
   
   render: function() {
@@ -26,10 +24,11 @@ PinterestClone.Views.BoardForm = Backbone.View.extend({
   },
   
   submit: function(event) {
-    var attrs = this.$el.serializeJSON();
-    
+    event.preventDefault();
+    var name = $("#board_name").val();
+
+    var attrs = $("#board-form").serializeJSON().board;
     this.model.set(attrs);
-    
     this.model.save({}, {
       success: function(model) {
         $("#modal").modal("hide");

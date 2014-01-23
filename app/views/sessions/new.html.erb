@@ -1,8 +1,20 @@
+<!-- log in errors -->
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <% flash.each do |type, message| %>
+      <div class="alert alert-danger">
+        <button class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <h1 align="center">Log In</h1>
 
 <div class="row">
-  <div class="col-xs-4 col-xs-offset-4">
-    <form role="form" action="<%= session_url %>" method="POST">
+  <div class="col-sm-4 col-sm-offset-4">
+    <form id="sign-in-form" action="<%= session_url %>" method="POST">
       <input 
         type="hidden" 
         name="authenticity_token" 
@@ -25,9 +37,34 @@
           name="user[password]"
           placeholder="Password">
       </div>
+
       <div class="form-actions">
         <button type="submit" class="btn btn-primary">Log In</button>
       </div>
     </form>
   </div>
 </div>
+
+<script>
+  $(document).ready(function () {
+    $("#sign-in-form").validate({
+      rules: {
+        "user[email]": { required: true, email: true },
+        "user[password]": { required: true, minlength: 6 }
+      },
+
+      messages: {
+        "user[email]": "Please enter email.",
+        "user[password]": "Please enter password."
+      },
+
+      highlight: function(element, errorClass, validClass) {
+        $(".form-group").addClass("has-error");
+      },
+      
+      unhighlight: function(element, errorClass, validClass) {
+        $(".form-group").addClass("has-error");
+      }
+    });
+  });
+</script>

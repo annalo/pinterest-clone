@@ -1,6 +1,6 @@
 PinterestClone.Views.PinsIndex = Backbone.View.extend({
   initialize: function() {
-    this.listenTo(this.collection, "change save", this.render);
+    this.listenTo(this.collection, "change save remove destroy", this.render);
   },
   
   template: JST["pins/index"],

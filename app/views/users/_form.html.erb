@@ -2,17 +2,18 @@
 <% method = (user.persisted? ? "put" : "post") %>
 <% message = (user.persisted? ? "Update user" : "Create user") %>
 
-<div class="row">
-  <div class="col-xs-2 col-xs-offset-4">
-    <form role="form" action="<%= action %>" method="post">
+<form id="new-user-form" action="<%= action %>" method="post">
+
+  <div class="row">
+    <div class="col-xs-2 col-xs-offset-4">
       <input
            name="_method"
            type="hidden"
            value="<%= method %>">
-        <input
-           name="authenticity_token"
-           type="hidden"
-           value="<%= form_authenticity_token %>">
+      <input
+         name="authenticity_token"
+         type="hidden"
+         value="<%= form_authenticity_token %>">
 
       <div class="form-group">  
         <input
@@ -35,7 +36,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-xs-4 col-xs-offset-4">
       <div class="form-group">  
@@ -58,9 +59,39 @@
       
       <div class="form-actions">
         <input type="submit" class="hidden">
-        <button formaction="/" class="btn btn-defaul">Cancel</button>
+        <button onclick="window.location.href='/'" class="btn btn-defaul">Cancel</button>
         <button type="submit" class="btn btn-primary"><%= message %></button>
       </div>
-    </form>
+    </div>
   </div>
-</div>
+</form>
+
+
+<script>
+  $(document).ready(function () {
+    $("#new-user-form").validate({
+      debug: true,
+      rules: {
+        "user[fname]": { required: true },
+        "user[lname]": { required: true },
+        "user[email]": { required: true, email: true },
+        "user[password]": { required: true, minlength: 6 }
+      },
+
+      messages: {
+        "user[fname]": "Please enter your first name.",
+        "user[lname]": "Please enter your last name.",
+        "user[email]": "Please enter email.",
+        "user[password]": "Please enter password."
+      },
+
+      highlight: function(element, errorClass, validClass) {
+        $(".form-group").addClass("has-error");
+      },
+      
+      unhighlight: function(element, errorClass, validClass) {
+        $(".form-group").addClass("has-error");
+      }
+    });
+  });
+</script>

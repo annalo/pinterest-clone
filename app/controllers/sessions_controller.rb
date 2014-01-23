@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
       self.current_user = user
       redirect_to root_url
     else
-      render :json => "Invalid Credentials"
+      flash[:errors] = "Invalid login. Please try again."
+      redirect_to new_session_url
     end
   end
   

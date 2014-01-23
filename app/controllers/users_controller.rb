@@ -18,7 +18,6 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
-    @pins = @user.board
   end
   
   def show
