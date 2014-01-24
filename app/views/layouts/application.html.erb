@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PinterestClone</title>
+  <title>Corkboard</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -39,9 +39,22 @@
 <div class="navbar navbar-fixed-bottom" id="f">
 	<div class="container">
     <div class="row centered">
-        <a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-facebook"></i></a>
+
+        <!-- twitter share -->
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://pinterest-clone-annalo.herokuapp.com/" data-text="Check out Anna's Pinterest clone she made for App Academy's final project!!" data-via="annayylo">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <!-- facebook share -->
+        <a href="#"><i class="fa fa-facebook"></i></a>
     </div><!-- row -->
 	</div>
 </div>
 </body>
 </html>
+
+
+
+<script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>

@@ -1,11 +1,14 @@
 PinterestClone.Views.PinShow = Backbone.View.extend({
   initialize: function(options) {
     this.type = options.type;
+    this.listenTo(this.model, "change", this.render)
   },
 
   events: {
-    "click a": "redirect",
-    "click #edit-pin": "edit"
+    "click #pin-add-button": "add",
+    "click #add-icon": "add",
+    "click #pin-edit-button": "edit",
+    "click #edit-icon": "edit"
   },
   
   template: JST["pins/show"],
@@ -23,20 +26,32 @@ PinterestClone.Views.PinShow = Backbone.View.extend({
     return this;
   },
 
-  redirect: function(event) {
+  add: function(event) {
     event.preventDefault();
-    var url = $(event.currentTarget).data("url");
 
+    var boardsPin = new PinterestClone.Models.BoardsPin({
+      pin_id: this.model.get("pin_id"),
+      description: this.model.get("description")
+    });
+
+    var view = new PinterestClone.Views.PinForm({
+      model: boardsPin,
+      type: "new"
+    });
+
+    $(".modal-content").empty();
+    $(".modal-content").append(view.render().$el);
+    $("#modal").modal("show");
   },
-  
+
   edit: function(event) {
     event.preventDefault();
-    var view = new PinterestClone.Views.PinForm({ 
+    var formView = new PinterestClone.Views.PinForm({ 
       model: this.model,
       type: "edit"
     });
     
-    $(".modal-content").html(view.render().$el);
+    $(".modal-content").html(formView.render().$el);
     $("#modal").modal("show");
   }
 });
