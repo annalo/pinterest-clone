@@ -1,26 +1,30 @@
-<h3 align="center">Pick a board</h3>
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  <h4 align="center">Pick a board</h4>
+</div>
 
-<div class="form-group">
+<div class="modal-body">
   <!-- render boards list / new boards template -->
-  <div class="row" id="boards-list-wrapper">
-    
-  </div>
+  <div class="row" id="boards-list-wrapper"></div>
 
-  <p />
-  
-  <div class="row">
-    <div class="col-xs-1 col-xs-offset-1">
-        <label for="pin_desc">Description</label>
+  <!-- description -->
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-1 col-xs-offset-1">
+          <label for="pin_desc">Description</label>
+      </div>
+
+      <div class="col-xs-7 col-xs-offset-1">
+          <textarea class="form-control" id="pin_desc" name="pin[description]" placeholder="What's this Pin all about?"></textarea>
+      </div>
     </div>
-
-    <div class="col-xs-7 col-xs-offset-1">
-        <textarea class="form-control" id="pin_desc" name="pin[description]" placeholder="What's this Pin all about?"></textarea>
-    </div>
   </div>
+</div>
 
-  <p />
-  
-  <div class="row">
+
+
+<div class="modal-footer">
+  <div class="form-group">
     <div class= "col-xs-5 col-xs-offset-7">      
       <input type="submit" class="hidden">
     

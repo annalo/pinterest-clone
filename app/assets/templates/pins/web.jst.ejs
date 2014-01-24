@@ -1,0 +1,46 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  <h4 align="center">Upload an image</h4>
+</div>
+<!-- insert form -->
+<div class="modal-body">
+    <form id="upload-pin-form" enctype="multipart/form-data">
+      <div class="row">
+        <div class="form-group">
+
+
+          <div class="col-xs-8 col-xs-offset-1">
+            <input class="form-control" type="text" name="pins[url]" id="pins-url">
+          </div>
+
+          <div class="col-xs-2">
+            <button type="submit" class="btn btn-danger">Submit</button>
+          </div>
+          
+        </div>
+      </div>
+    </form>
+  </p>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $("#upload-pin-form").validate({
+      debug: true,
+
+      rules: {
+        "pins[img]": { 
+          required: true,
+          extension: "jpg|jpeg|png|tif|tiff|gif"
+        }
+      },
+
+      highlight: function(element, errorClass, validClass) {
+        $(".form-group").addClass("has-error");
+      },
+      unhighlight: function(element, errorClass, validClass) {
+        $(".form-group").removeClass("has-error");
+      }
+    });
+  });
+</script>

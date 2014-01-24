@@ -1,7 +1,7 @@
 <% action = (user.persisted? ? user_url(user) : users_url) %>
 <% method = (user.persisted? ? "put" : "post") %>
 <% message = (user.persisted? ? "Update user" : "Create user") %>
-
+<div class="container">
 <form id="new-user-form" action="<%= action %>" method="post">
 
   <div class="row">
@@ -15,7 +15,7 @@
          type="hidden"
          value="<%= form_authenticity_token %>">
 
-      <div class="form-group">  
+      <div class="form-group" id="fname">  
         <input
           class="form-control"
           id="user_fname"
@@ -26,7 +26,7 @@
     </div>
   
     <div class="col-sm-2">
-      <div class="form-group">  
+      <div class="form-group" id="lname">  
         <input
           class="form-control" 
           id="user_lname"
@@ -39,7 +39,7 @@
 
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
-      <div class="form-group">  
+      <div class="form-group"  id="email">  
         <input
           class="form-control" 
           id="user_email"
@@ -48,7 +48,7 @@
           placeholder="Email Address">
       </div>
   
-      <div class="form-group">  
+      <div class="form-group" id="password">  
         <input
            class="form-control" 
            id="user_password"
@@ -58,7 +58,7 @@
       </div>
       
       <div class="form-actions">
-        <div class="col-sm-4 col-sm-offset-8">
+        <div class="col-sm-7 col-sm-offset-5">
           <input type="submit" class="hidden">
           <button onclick="window.location.href='/'" class="btn btn-defaul">Cancel</button>
           <button type="submit" class="btn btn-danger"><%= message %></button>
@@ -67,7 +67,7 @@
     </div>
   </div>
 </form>
-
+</div>
 
 <script>
   $(document).ready(function () {
@@ -87,12 +87,17 @@
       },
 
       highlight: function(element, errorClass, validClass) {
-        $(".form-group").addClass("has-error");
+        $("#fname").addClass("has-error");
+        $("#lname").addClass("has-error");
+        $("#email").addClass("has-error");
+        $("#password").addClass("has-error");
       },
       
       unhighlight: function(element, errorClass, validClass) {
-        $(".form-group").addClass("has-error");
-      }
+        $("#fname").removeClass("has-error");
+        $("#lname").removeClass("has-error");
+        $("#email").removeClass("has-error");
+        $("#password").removeClass("has-error");      }
     });
   });
 </script>

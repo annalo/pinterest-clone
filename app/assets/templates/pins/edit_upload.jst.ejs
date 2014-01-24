@@ -1,28 +1,29 @@
-<h3 align="center">Edit Pin</h3>
-<div class="form-group">  
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  <h4 align="center">Edit Pin</h4>
+</div>
+
+
+<div class="modal-body">
   <!-- render boards list / new boards template -->
-  <div class="row" id="boards-list-wrapper">
-    
-  </div>
-  
-  <p />
-    
-  <div class="row">
-    <div class="col-xs-1 col-xs-offset-2">
-        <label for="pin_desc">Description</label>
-    </div>
+  <div class="row" id="boards-list-wrapper"></div>
 
-    <div class="col-xs-6 col-xs-offset-1">
-        <textarea 
-          class="form-control"
-          id="pin_desc" 
-          name="pin[description]"
-          placeholder="What's this Pin all about?"><%= pin.escape("description") %></textarea>
+  <!-- description -->
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-1 col-xs-offset-1">
+          <label for="pin_desc">Description</label>
+      </div>
+
+      <div class="col-xs-7 col-xs-offset-1">
+          <textarea class="form-control" id="pin_desc" name="pin[description]" placeholder="What's this Pin all about?"></textarea>
+      </div>
     </div>
   </div>
-  
-  <p />
+</div>
 
+
+<div class="modal-footer">
   <div class="row">
     <div class= "col-xs-1 col-xs-offset-1">
         <input type="submit" class="hidden">
@@ -37,7 +38,7 @@
           
     <div class= "col-xs-5 col-xs-offset-4">      
       <button type="button" class="btn btn-default" id="cancel">Cancel</button>
-      <button type="submit" class="btn btn-primary" id="submit-pin-button">
+      <button type="submit" class="btn btn-danger" id="submit-pin-button">
         Save Changes
       </button>
     </div>

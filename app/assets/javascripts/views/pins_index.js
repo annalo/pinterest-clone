@@ -34,8 +34,8 @@ PinterestClone.Views.PinsIndex = Backbone.View.extend({
       type: "new"
     });
 
-    $("#modal-body").empty();
-    $("#modal-body").append(view.render().$el);
+    $(".modal-content").empty();
+    $(".modal-content").append(view.render().$el);
     $("#modal").modal("show");
   },
   
@@ -49,8 +49,7 @@ PinterestClone.Views.PinsIndex = Backbone.View.extend({
       type: "edit"
     });
     
-    $("#modal-body").empty();
-    $("#modal-body").append(view.render().$el);
+    $(".modal-content").html(view.render().$el);
     $("#modal").modal("show");
   },
   
