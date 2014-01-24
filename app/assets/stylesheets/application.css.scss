@@ -20,6 +20,9 @@
 body {
   padding-top: 13px;
   padding-bottom: 13px;
+
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 
