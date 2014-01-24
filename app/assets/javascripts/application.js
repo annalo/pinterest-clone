@@ -22,6 +22,7 @@
 //= require jquery.masonry.min
 //= require jquery.wookmark
 //= require jquery.serializeJSON.min
+//= require jquery.embedly
 //
 //= require_tree ../templates
 //= require_tree ./models

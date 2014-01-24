@@ -35,5 +35,4 @@ PinterestClone::Application.configure do
     }
   }
 
-  config.filepicker_rails.cdn_host = ENV["CDN_HOST_NAME"]
 end
