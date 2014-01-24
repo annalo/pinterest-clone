@@ -33,8 +33,10 @@ PinterestClone.Views.PinUpload = Backbone.View.extend({
     reader.readAsDataURL(file);
   },
   
-  submit: function(event) {
+  submit: function(event) {    
     event.preventDefault();
+    $(".modal-content").html(JST["loading"]);
+
     var formView = new PinterestClone.Views.PinForm({ 
       model: this.model,
       type: "new"

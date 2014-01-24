@@ -17,6 +17,8 @@ PinterestClone.Views.PinWeb = Backbone.View.extend({
 
   extractImgs: function(event) {
     event.preventDefault();
+    $(".modal-content").html(JST["loading"]);
+
     var that = this;
     var attrs = $(event.currentTarget).serializeJSON()
     this.model.set({ url: attrs.url });

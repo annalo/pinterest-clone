@@ -5,7 +5,6 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
   
   initialize: function(options) {
     this.type = options.type;
-    debugger;
 
     // determines which template to render
     if(this.type === "new") {
@@ -44,6 +43,9 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
   },
   
   submit: function(event) {
+    event.preventDefault();
+    $(".modal-content").html(JST["loading"]);
+
     var that = this;
     event.preventDefault();
     var attrs = this.$el.serializeJSON().pin;

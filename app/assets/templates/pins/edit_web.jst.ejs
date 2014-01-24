@@ -16,7 +16,7 @@
       </div>
 
       <div class="col-xs-7 col-xs-offset-1">
-          <textarea class="form-control" id="pin_desc" name="pin[description]" placeholder="What's this Pin all about?"></textarea>
+          <textarea class="form-control" id="pin_desc" name="pin[description]" placeholder="What's this Pin all about?"><%= pin.escape("description") %></textarea>
       </div>
     </div>
   </div>
