@@ -1,8 +1,7 @@
 PinterestClone.Views.UserEdit = Backbone.View.extend({
-	tagName: "form",
-
 	events: {
-		"submit form": "submit"
+    "submit form#edit-user-form": "editUser",
+    "click #cancel": "back"
 	},
 
 	template: JST["users/edit"],
@@ -28,5 +27,10 @@ PinterestClone.Views.UserEdit = Backbone.View.extend({
 				window.history.back();
 			}
 		});
+	},
+
+	back: function(event) {
+		event.preventDefault();
+		window.history.back()
 	}
 });

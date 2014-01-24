@@ -4,7 +4,7 @@ PinterestClone.Views.UserShow = Backbone.View.extend({
     this.boards = this.model.get("boards");
     this.pins = this.model.get("pins");
   },
-  
+
   template: JST["users/show"],
   
   render: function() {
@@ -42,6 +42,6 @@ PinterestClone.Views.UserShow = Backbone.View.extend({
     var view = new PinterestClone.Views.UserEdit({ 
       model: this.model,
     });
-    this.$("#views").append(view.render().$el);
+    this.$el.html(view.render().$el);
   }
 });

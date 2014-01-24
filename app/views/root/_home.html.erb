@@ -1,12 +1,10 @@
 <div id="headerwrap">
-	<div class="container">
+	<div id="layer">
 		<div class="row centered">
+			<div class="container">
+
 			<div class="col-lg-8 col-lg-offset-2">
-			  <h2>C <i class="fa fa-circle"></i> RKBOARD</h2>
-			  
-			  <p style="margin-bottom:30px">
-			  <h3>Save all the stuff you <b>love</b>!!</h3>
-			  </p>
+			  <h1>Save all the stuff you <b>love</b>!!</h1>
 			  
 			  <p style="margin-top:30px; margin-bottom:30px;">
 			  <a class="btn btn-primary" 
@@ -14,13 +12,41 @@
 			     role="button">Sign Up</a>
 			  </p>
 			  
-			  Already have an account? <%= link_to "Log in now", new_session_url %>
-			  <br>
-			  Or sign in as a <b><a href="#" id="example-sign-in">guest</a></b>
+			  <h4 style="color: white"><b>
+				  Already have an account? <%= link_to "Log in now", new_session_url, :class => "img-text" %>
+				  <br>
+				  Or sign in as a <b><a href="#" id="example-sign-in" class="img-text">guest</a></b>
+			  </b></h4>
 		  </div>
 	  </div>
   </div>
 </div>
+</div>
+
+<div class="container w">
+	<div class="row centered">
+		<br><br>
+		<div class="col-lg-4">
+			<i class="fa fa-thumb-tack"></i>
+			<h4>PIN</h4>
+			<p>Pin your favorite stuff (recipes! articles! travel ideas!) right here on Corkboard.</p>
+		</div><!-- col-lg-4 -->
+
+		<div class="col-lg-4">
+			<i class="fa fa-laptop"></i>
+			<h4>BROWSE</h4>
+			<p>Browse users' boards and pins - save what you like.</p>
+		</div><!-- col-lg-4 -->
+
+		<div class="col-lg-4">
+			<i class="fa fa-trophy"></i>
+			<h4>SUPPORT</h4>
+			<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+		</div><!-- col-lg-4 -->
+	</div><!-- row -->
+	<br>
+	<br>
+</div><!-- container -->
 
 
 <!-- example account login -->

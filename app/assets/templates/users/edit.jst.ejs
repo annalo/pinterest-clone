@@ -1,62 +1,46 @@
+<div class="container">
+<h2 align="center">Account Settings</h2>
 
-<!-- first row -->
-<div class="row">
+<form class="form-horizontal" id="edit-user-form">
 
-	<!-- first name -->
-  <div class="col-xs-2 col-xs-offset-4">
-    <div class="form-group">  
-      <input
-        class="form-control"
-        id="user_fname"
-        name="user[fname]"
-        type="text"
-        placeholder="First Name">
+  <div class="form-group">
+    <label for="email" class="col-sm-1 col-sm-offset-3 control-label">Email</label>
+  
+    <div class="col-sm-4">
+        <input
+          class="form-control" 
+          id="user_email"
+          name="user[email]"
+          type="email"
+          value="<%= user.escape("email") %>"
+          placeholder="Please enter email.">
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-sm-4 col-sm-offset-6">
+        <input type="submit" class="hidden">
+        <button class="btn btn-default" id="cancel">Cancel</button>
+        <button type="submit" class="btn btn-danger">Save Settings</button>
+      </div>
     </div>
   </div>
-  
-	<!-- last name -->
-  <div class="col-xs-2">
-    <div class="form-group">  
-      <input
-        class="form-control" 
-        id="user_lname"
-        name="user[lname]"
-        type="text"
-        placeholder="Last Name">
-    </div>
-  </div>
-</div>
-  
+</form>
 
- <!-- second row -->
-<div class="row">
+<script>
+  $(document).ready(function () {
+    $("#edit-user-form").validate({
+      rules: {
+        "user[email]": { required: true, email: true }
+      },
 
-	<!-- email -->
-	<div class="col-xs-4 col-xs-offset-4">
-	  <div class="form-group">  
-	    <input
-	      class="form-control" 
-	      id="user_email"
-	      name="user[email]"
-	      type="email"
-	      placeholder="Email Address">
-	  </div>
-  
-  	<!-- password -->
-    <div class="form-group">  
-      <input
-         class="form-control" 
-         id="user_password"
-         name="user[password]"
-         type="password"
-         placeholder="Password">
-    </div>
-      
-		<!-- buttons -->
-    <div class="form-actions">
-      <input type="submit" class="hidden">
-      <button formaction="/" class="btn btn-defaul">Cancel</button>
-      <button type="submit" class="btn btn-primary">Save Settings</button>
-    </div>
-  </div>
-</div>
+      highlight: function(element, errorClass, validClass) {
+        $("#form-group").addClass("has-error");
+      },
+      unhighlight: function(element, errorClass, validClass) {
+        $("#form-group").removeClass("has-error");
+      }
+    });
+  });
+</script>
