@@ -4,7 +4,8 @@ PinterestClone.Views.Header = Backbone.View.extend({
 	},
 
 	events: {
-		"click #new-pin": "newPin",
+		"click #upload-pin": "newPin",
+    "click #web-pin": "newPin",
 		"click #new-board": "newBoard",
 		"keyup #search-form": "search"
 	},

@@ -2,6 +2,11 @@ PinterestClone.Views.PinShow = Backbone.View.extend({
   initialize: function(options) {
     this.type = options.type;
   },
+
+  events: {
+    "click a": "redirect",
+    "click #edit-pin": "edit"
+  },
   
   template: JST["pins/show"],
   
@@ -17,20 +22,21 @@ PinterestClone.Views.PinShow = Backbone.View.extend({
     
     return this;
   },
-  
-  edit: function() {
-    var view = new PinterestClone.Views.PinForm({ model: this.model });
-    this.$el.html(view.render().$el);
+
+  redirect: function(event) {
+    event.preventDefault();
+    var url = $(event.currentTarget).data("url");
+
   },
   
-  delete: function() {
-    alert("Are you sure?"); // change to prettier alert
-    
-    this.model.destroy({
-      success: function(model) {
-        var user_id = model.get("user_id")
-        Backbone.history.navigate("/users/" + user_id, { trigger: true });
-      }
+  edit: function(event) {
+    event.preventDefault();
+    var view = new PinterestClone.Views.PinForm({ 
+      model: this.model,
+      type: "edit"
     });
+    
+    $(".modal-content").html(view.render().$el);
+    $("#modal").modal("show");
   }
 });

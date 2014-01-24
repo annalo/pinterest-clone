@@ -1,6 +1,30 @@
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <img src="<%= pin.escape("img") %>" class="img-responsive">
-    <p><%= pin.escape("description") %></p>
-  </div>
+<div class="container">
+	<div class="jumbotron">
+		<div class="row centered">
+		  <div class="col-lg-12">
+		    <a href="#" data-id="<%= pin.escape('url') %>"><img src="<%= pin.escape("img") %>"></a>
+
+		    		<div class="row">
+    				  <div class="col-lg-6">
+			          <!-- check for current_user -->
+					      <% if(pin.get("pinned")) { %>
+					        <!-- edit pin button -->
+					        <button type="button" class="btn btn-default" id="pin-edit-button" data-id="<%= pin.id %>">
+					          <span class="glyphicon glyphicon-pencil" id="edit-icon" data-id="<%= pin.id %>"></span>
+					        </button>
+					      <% } else { %> 
+					        <!-- add pin button -->
+					        <button type="button" class="btn btn-default" id="pin-add-button" data-id="<%= pin.id %>" style="background: transparent; padding-top: 2px; padding-bottom: 2px; float: right">
+					          <span class="glyphicon glyphicon-pushpin" id="add-icon" data-id="<%= pin.id %>"></span>
+					        </button>
+					      <% } %>
+				      </div>
+			      </div>
+
+
+
+		    <p><%= pin.escape("description") %></p>
+		  </div>
+		</div>
+	</div>
 </div>
