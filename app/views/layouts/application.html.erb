@@ -17,16 +17,6 @@
 
 <body>
 <!-- header -->
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="header">   
-<div class="navbar-header">
-
-    <a class="navbar-brand">
-      <a class="navbar-brand" href="/">
-        C <i class="fa fa-circle"></i> RKBOARD
-      </a>
-    </a>
-  </div>
-</div>
 
 <%= yield %>
 
@@ -34,27 +24,3 @@
 <!-- modal -->
 
 <%= render "/layouts/modal" %>
-
-<!-- footer -->
-<div class="navbar navbar-fixed-bottom" id="f">
-	<div class="container">
-    <div class="row centered">
-
-        <!-- twitter share -->
-        <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://pinterest-clone-annalo.herokuapp.com/" data-text="Check out Anna's Pinterest clone she made for App Academy's final project!!" data-via="annayylo">
-          <i class="fa fa-twitter"></i>
-        </a>
-
-        <!-- facebook share -->
-        <a href="#"><i class="fa fa-facebook"></i></a>
-    </div><!-- row -->
-	</div>
-</div>
-</body>
-</html>
-
-
-
-<script>
-  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-</script>
