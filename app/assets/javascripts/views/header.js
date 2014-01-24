@@ -1,6 +1,7 @@
 PinterestClone.Views.Header = Backbone.View.extend({
 	initialize: function() {
 		this.collection.bind("change", this.render, this);
+    this.currentSearchCount = this.collection.length;
 	},
 
 	events: {
@@ -46,7 +47,13 @@ PinterestClone.Views.Header = Backbone.View.extend({
 
   search: function(event) {
   	var letters = $("#search-form").val();
-  	this.renderPins(this.collection.search(letters));
+    var results = this.collection.search(letters);
+
+    // only render if there is a change
+    if(this.currentSearchCount !== results.length) {
+      this.renderPins(results);
+      this.currentSearchCount = results.length;
+    }
   },
 
   renderPins: function(pins) {

@@ -10,7 +10,10 @@ PinterestClone.Views.PinWebShow = Backbone.View.extend({
 	template: JST["pins/show_web"],
 
 	render: function() {
-    var renderedContent = this.template({ images: this.images });
+    var renderedContent = this.template({ 
+        pin: this.model,
+        images: this.images 
+    });
     this.$el.html(renderedContent);
     return this;
 	},
