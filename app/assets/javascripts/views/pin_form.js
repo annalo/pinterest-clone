@@ -5,6 +5,7 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
   
   initialize: function(options) {
     this.type = options.type;
+    debugger;
 
     // determines which template to render
     if(this.type === "new") {

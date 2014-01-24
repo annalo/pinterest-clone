@@ -51,7 +51,8 @@ PinterestClone.Views.PinShow = Backbone.View.extend({
       type: "edit"
     });
     
-    $(".modal-content").html(formView.render().$el);
+    $(".modal-content").empty();
+    $(".modal-content").append(formView.render().$el);
     $("#modal").modal("show");
   }
 });

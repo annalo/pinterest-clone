@@ -26,7 +26,7 @@ PinterestClone.Views.BoardsIndex = Backbone.View.extend({
     return this;
   },
   
-  edit: function() {
+  edit: function(event) {
     event.preventDefault();
     var board_id = $(event.target).attr("data-id");
     var board = this.collection.get(board_id);
@@ -37,7 +37,7 @@ PinterestClone.Views.BoardsIndex = Backbone.View.extend({
     $("#modal").modal("toggle");
   },
 
-  new: function() {
+  new: function(event) {
     event.preventDefault();
     var newBoard = new PinterestClone.Models.Board();    
     var view = new PinterestClone.Views.BoardForm({ model: newBoard });

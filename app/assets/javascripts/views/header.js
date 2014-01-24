@@ -1,6 +1,6 @@
 PinterestClone.Views.Header = Backbone.View.extend({
 	initialize: function() {
-		this.collection.bind("reset", this.render, this);
+		this.collection.bind("change", this.render, this);
 	},
 
 	events: {

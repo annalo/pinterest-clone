@@ -7,6 +7,5 @@ json.array!(@boards_pins) do |boards_pin|
 	json.board(boards_pin.board, :id, :name, :description)
 	json.board_name boards_pin.board.name
 	json.user(boards_pin.board.user, :id, :fname, :lname, :email)
-	json.user_name boards_pin.board.user.fname
 end
 

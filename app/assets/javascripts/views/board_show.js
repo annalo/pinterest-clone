@@ -32,9 +32,15 @@ PinterestClone.Views.BoardShow = Backbone.View.extend({
     this.$("#pins-wrapper").append(pinsView.render().$el);
   },
   
-  edit: function() {
-    var view = new PinterestClone.Views.BoardForm({ model: this.model });
-    $("#modal-body").append(view.render().$el);
+  edit: function(event) {
+    event.preventDefault();
+    var board_id = $(event.target).attr("data-id");
+    var board = this.collection.get(board_id);
+    var view = new PinterestClone.Views.BoardForm({ model: board });
+    
+    $(".modal-content").empty();
+    $(".modal-content").append(view.render().$el);
+    $("#modal").modal("toggle");
   },
   
   delete: function() {
