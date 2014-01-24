@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row centered">
       <div class="col-lg-8 col-lg-offset-2">
-        <h2 style="color: whitet"><%= user.escape("fname") %></h2>
+        <h2 style="color: white"><%= user.escape("fname") %></h2>
       </div>
     </div>
   </div>
@@ -10,13 +10,13 @@
 
 <div class="nav nav-tabs nav-justified" style="padding-left: 25%; padding-right: 25%">
   <li id="link-boards">
-    <a href="#/users/<%= user.id %>/boards">Boards</a>
+    <a href="#/users/<%= user.id %>/boards"><%= user.escape("board_count") %> Boards</a>
   </li>
   
   <li id="link-pins">
-    <a href="#/users/<%= user.id %>/pins">Pins</a>
+    <a href="#/users/<%= user.id %>/pins"><%= user.escape("pin_count") %> Pins</a>
   </li>
 </div>
 
-
 <div id="views"></div>
+

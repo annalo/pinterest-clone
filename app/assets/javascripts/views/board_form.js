@@ -21,11 +21,10 @@ PinterestClone.Views.BoardForm = Backbone.View.extend({
   
   submit: function(event) {
     event.preventDefault();
-    $(".modal-content").html(JST["loading"]);
 
     var name = $("#board_name").val();
-
     var attrs = $("#board-form").serializeJSON().board;
+
     this.model.set(attrs);
     this.model.save({}, {
       success: function(model) {

@@ -3,6 +3,10 @@ PinterestClone.Views.BoardShow = Backbone.View.extend({
     this.listenTo(this.model, "change", this.render);
     this.type = options.type;
   },
+
+  events: {
+    "click #board-edit-button": "edit"
+  },  
   
   template: JST["boards/show"],
     
@@ -34,9 +38,7 @@ PinterestClone.Views.BoardShow = Backbone.View.extend({
   
   edit: function(event) {
     event.preventDefault();
-    var board_id = $(event.target).attr("data-id");
-    var board = this.collection.get(board_id);
-    var view = new PinterestClone.Views.BoardForm({ model: board });
+    var view = new PinterestClone.Views.BoardForm({ model: this.model });
     
     $(".modal-content").empty();
     $(".modal-content").append(view.render().$el);

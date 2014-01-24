@@ -20,7 +20,7 @@
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
   width: 236px;        
   display: none;
-  padding-bottom: 30px;
+  padding-bottom: 7px;
   text-align: center;
 }
 
@@ -50,4 +50,10 @@
   display: none;
   padding-bottom: 40px;
   text-align: center;
+}
+
+#user-info {
+  margin-top: 7px;
+  margin-left: 40px;
+  font-size: 10px;
 }

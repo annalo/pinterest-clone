@@ -13,22 +13,23 @@
   <% boards.each(function(board) { %>
     <li>
         <a href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>">
-        <!-- board caption / img -->
-        <div class="caption">
-          <h5><%= board.escape("name") %></h5>
-        </div>
-        <div style="height: 211px">
-          <img data-src="" alt="..." class="img-responsive">
-        </div>
-      </a>
-
-      <!-- check for current user -->
-      <% if(board.get("owned")) { %>
+          <!-- board caption / img -->
+          <div class="caption">
+            <h5><%= board.escape("name") %></h5>
+          </div>
+          <div style="height: 211px">
+          <!-- insert image -->
+          </div>
+        </a>
 
         <!-- edit board -->
-        <p><button class="btn btn-default" id="board-edit-button" data-id="<%= board.id %>">Edit</button></p>
-      <% } %>
+        <div style="height: 34px">
 
+          <!-- check for current user -->
+          <% if(board.get("owned")) { %>
+            <button class="btn btn-default" id="board-edit-button" data-id="<%= board.id %>">Edit</button>
+          <% } %>
+        </div>
     </li>
     
     <% }); %>
@@ -40,7 +41,6 @@ $(document).imagesLoaded(function() {
   // Call the layout function.
   $('#board-tiles li').wookmark({
     align: "center",
-    autoResize: true, // This will auto-update the layout when the browser window is resized.
     container: $('#board-tiles'), // Optional, used for some extra CSS styling
     offset: 10, // Optional, the distance between grid items
     itemWidth: 236 // Optional, the width of a grid item

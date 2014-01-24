@@ -1,5 +1,7 @@
 json.(@user, :id, :fname, :lname, :email)
 json.current_user current_user?(@user)
+json.board_count @user.boards.length
+json.pin_count @user.pins.length
 
 json.boards @user.boards do |board|
 	json.(board, :id, :name, :description, :user_id)
