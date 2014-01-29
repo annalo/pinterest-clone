@@ -7,6 +7,7 @@ json.user do
 end
 
 json.pins @board.boards_pins do |boards_pin|
+	json.updated_at boards_pin.updated_at.to_i
 	json.(boards_pin, :id, :pin_id, :board_id, :description)
 	json.(boards_pin.pin, :img, :url)
 	json.pinned pinned?(boards_pin)
