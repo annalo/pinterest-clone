@@ -10,9 +10,9 @@ PinterestClone.Views.PinShow = Backbone.View.extend({
     "click #pin-edit-button": "edit",
     "click #edit-icon": "edit"
   },
-  
+
   template: JST["pins/show"],
-  
+
   render: function() {
     if(this.type === "edit") {
       this.edit();
@@ -22,7 +22,7 @@ PinterestClone.Views.PinShow = Backbone.View.extend({
       var renderedContent = this.template({ pin: this.model });
       this.$el.html(renderedContent);
     }
-    
+
     return this;
   },
 
@@ -46,11 +46,11 @@ PinterestClone.Views.PinShow = Backbone.View.extend({
 
   edit: function(event) {
     event.preventDefault();
-    var formView = new PinterestClone.Views.PinForm({ 
+    var formView = new PinterestClone.Views.PinForm({
       model: this.model,
       type: "edit"
     });
-    
+
     $(".modal-content").empty();
     $(".modal-content").append(formView.render().$el);
     $("#modal").modal("show");

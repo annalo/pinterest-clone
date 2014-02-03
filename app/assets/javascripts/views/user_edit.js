@@ -1,36 +1,36 @@
 PinterestClone.Views.UserEdit = Backbone.View.extend({
-	events: {
+  events: {
     "submit form#edit-user-form": "editUser",
     "click #cancel": "back"
-	},
+  },
 
-	template: JST["users/edit"],
+  template: JST["users/edit"],
 
-	render: function() {
-		var renderedContent = this.template({ user: this.model });
-		this.$el.html(renderedContent);
-		return this;
-	},
+  render: function() {
+    var renderedContent = this.template({ user: this.model });
+    this.$el.html(renderedContent);
+    return this;
+  },
 
-	submit: function(event) {
-		event.preventDefault();
-		var attr = this.$el.serializeJSON();
-
-
-		debugger;
+  submit: function(event) {
+    event.preventDefault();
+    var attr = this.$el.serializeJSON();
 
 
-		this.model.set(attr);
-		this.model.save({}, {
-			success: function() {
-				console.log("User settings saved.");
-				window.history.back();
-			}
-		});
-	},
+    debugger;
 
-	back: function(event) {
-		event.preventDefault();
-		window.history.back()
-	}
+
+    this.model.set(attr);
+    this.model.save({}, {
+      success: function() {
+        console.log("User settings saved.");
+        window.history.back();
+      }
+    });
+  },
+
+  back: function(event) {
+    event.preventDefault();
+    window.history.back()
+  }
 });

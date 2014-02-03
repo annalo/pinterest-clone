@@ -6,12 +6,12 @@ PinterestClone.Views.UserShow = Backbone.View.extend({
   },
 
   template: JST["users/show"],
-  
+
   render: function() {
     var renderedContent = this.template({
       user: this.model,
     });
-    
+
     this.$el.html(renderedContent);
     if(this.type === "pins") {
       this.indexPins();
@@ -22,16 +22,16 @@ PinterestClone.Views.UserShow = Backbone.View.extend({
     }
     return this;
   },
-  
+
   indexBoards: function() {
-    var view = new PinterestClone.Views.BoardsIndex({ 
+    var view = new PinterestClone.Views.BoardsIndex({
       collection: this.boards,
       type: "user"
     });
     this.$("#link-boards").addClass("active");
     this.$("#views").append(view.render().$el);
   },
-  
+
   indexPins: function() {
     var view = new PinterestClone.Views.PinsIndex({ collection: this.pins });
     this.$("#link-pins").addClass("active");
@@ -39,7 +39,7 @@ PinterestClone.Views.UserShow = Backbone.View.extend({
   },
 
   editUser: function() {
-    var view = new PinterestClone.Views.UserEdit({ 
+    var view = new PinterestClone.Views.UserEdit({
       model: this.model,
     });
     this.$el.html(view.render().$el);

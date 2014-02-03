@@ -6,9 +6,9 @@ PinterestClone.Views.PinWeb = Backbone.View.extend({
   events: {
     "submit form#web-pin-form": "extractImgs"
   },
-  
+
   template: JST["pins/web"],
-  
+
   render: function() {
     var renderedContent = this.template({});
     this.$el.html(renderedContent);
@@ -33,7 +33,7 @@ PinterestClone.Views.PinWeb = Backbone.View.extend({
       // render view with images for selection
       var showView = new PinterestClone.Views.PinWebShow({
         model: that.model,
-        images: images 
+        images: images
       });
       $("#content").html(showView.render().$el);
     });

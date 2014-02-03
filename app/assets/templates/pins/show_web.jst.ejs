@@ -2,14 +2,14 @@
 
 <div class="container-fluid" style="padding-top: 7px">
   <ul id="tiles">
-    
+
     <% _.each(images, function(image) { %>
       <li>
         <!-- pin img -->
         <a href="#" id="select-img" data-url="<%= image.url %>">
           <img src="<%= image.url %>" class="img-responsive">
         </a>
-      </li>    
+      </li>
     <% }); %>
   </ul>
 </div>

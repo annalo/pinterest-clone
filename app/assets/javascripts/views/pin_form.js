@@ -2,7 +2,7 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
   template0: JST["pins/form"],
   template1: JST["pins/edit_upload"],
   template2: JST["pins/edit_web"],
-  
+
   initialize: function(options) {
     this.type = options.type;
 
@@ -20,28 +20,28 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
   },
 
   tagName: "form",
-  
-  events: { 
+
+  events: {
     "click #cancel": "closeModal",
     "click #delete-pin": "delete",
     "click #create-board": "createBoard",
     "click #submit-pin-button": "submit"
   },
-  
+
   render: function() {
     var renderedContent = this.template({ pin: this.model });
     this.$el.html(renderedContent);
-    
+
     var listView = new PinterestClone.Views.BoardsList({ model: this.model });
     this.$("#boards-list-wrapper").append(listView.render().$el);
-    
+
     return this;
   },
-  
+
   closeModal: function() {
     $("#modal").modal("hide");
   },
-  
+
   submit: function(event) {
     event.preventDefault();
     $(".modal-content").html(JST["loading"]);
@@ -55,7 +55,7 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
     if(this.model.name == "boardsPin") {
       var origBoardId = this.model.get("board_id");
 
-      this.model.set({ 
+      this.model.set({
         board_id: newBoardId,
         description: attrs.description
       });
@@ -74,9 +74,9 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
           } else {
             $("#modal").modal("hide");
             $(".modal-backdrop").remove();
-            
+
             Backbone.history.navigate(
-              "#/users/" + pin.get("user").id + "/boards/" + pin.get("board_id"), 
+              "#/users/" + pin.get("user").id + "/boards/" + pin.get("board_id"),
               { trigger: true });
           }
         }
@@ -85,7 +85,7 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
     // if uploading a pin
     } else {
       this.model.set({ description: attrs.description });
-      this.model.save({}, {      
+      this.model.save({}, {
         success: function(pin) {
 
           // upon successful creation of pin, create boards_pins relation
@@ -99,10 +99,10 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
             success: function(model) {
               $("#modal").modal("hide");
               $(".modal-backdrop").remove();
-              
+
               // redirect to user board show page
               Backbone.history.navigate(
-                "#/users/" + model.get("user").id + "/boards/" + model.get("board_id"), 
+                "#/users/" + model.get("user").id + "/boards/" + model.get("board_id"),
                 { trigger: true });
             },
 
@@ -120,11 +120,11 @@ PinterestClone.Views.PinForm = Backbone.View.extend({
       });
     }
   },
-  
+
   delete: function() {
     this.model.destroy({
       success: function(model) {
-        console.log("model was deleted")        
+        console.log("model was deleted")
         $("#modal").modal("hide");
         $(".modal-backdrop").remove();
       }

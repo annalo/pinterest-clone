@@ -1,29 +1,29 @@
 PinterestClone.Views.Header = Backbone.View.extend({
-	initialize: function() {
-		this.collection.bind("change", this.render, this);
+  initialize: function() {
+    this.collection.bind("change", this.render, this);
     this.currentSearchCount = this.collection.length;
-	},
+  },
 
-	events: {
-		"click #upload-pin": "newPin",
+  events: {
+    "click #upload-pin": "newPin",
     "click #web-pin": "newPin",
-		"click #new-board": "newBoard",
-		"keyup #search-form": "search"
-	},
+    "click #new-board": "newBoard",
+    "keyup #search-form": "search"
+  },
 
-	template: JST["header"],
+  template: JST["header"],
 
-	render: function() {
-		var renderedContent = this.template({ user: this.model });
-		this.$el.html(renderedContent);
-		return this;
-	},
+  render: function() {
+    var renderedContent = this.template({ user: this.model });
+    this.$el.html(renderedContent);
+    return this;
+  },
 
   newBoard: function() {
     event.preventDefault();
-    var newBoard = new PinterestClone.Models.Board();    
+    var newBoard = new PinterestClone.Models.Board();
     var view = new PinterestClone.Views.BoardForm({ model: newBoard });
-    
+
     $(".modal-content").empty();
     $(".modal-content").append(view.render().$el);
     $("#modal").modal("toggle");
@@ -46,7 +46,7 @@ PinterestClone.Views.Header = Backbone.View.extend({
   },
 
   search: function(event) {
-  	var letters = $("#search-form").val();
+    var letters = $("#search-form").val();
     var results = this.collection.search(letters);
 
     // only render if there is a change
@@ -57,7 +57,7 @@ PinterestClone.Views.Header = Backbone.View.extend({
   },
 
   renderPins: function(pins) {
-  	var view = new PinterestClone.Views.PinsIndex({ collection: pins });
-  	$("#content").html(view.render().$el);
+    var view = new PinterestClone.Views.PinsIndex({ collection: pins });
+    $("#content").html(view.render().$el);
   }
 });

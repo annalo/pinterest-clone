@@ -9,7 +9,7 @@
       <div style="height: 255px"></div>
     </a>
   </li>
-  
+
   <% boards.each(function(board) { %>
     <li>
         <a href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>">
@@ -31,7 +31,7 @@
           <% } %>
         </div>
     </li>
-    
+
     <% }); %>
   </ul>
 </div>

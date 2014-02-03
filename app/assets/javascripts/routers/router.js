@@ -11,7 +11,7 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
     "users/:id(/:type)": "showUser",
     "users/:user_id/boards/:id(/:type)": "showBoard"
   },
-  
+
   home: function() {
     var view = new PinterestClone.Views.PinsIndex({ collection: this.pins });
     this._swapView(view);
@@ -22,7 +22,7 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
     var boards = new PinterestClone.Collections.Boards();
     boards.fetch({
       success: function() {
-        var view = new PinterestClone.Views.BoardsIndex({ 
+        var view = new PinterestClone.Views.BoardsIndex({
           collection: boards,
           type: "all"
         });
@@ -30,13 +30,13 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
       }
     })
   },
-  
+
   showBoard: function(user_id, id, type) {
     var that = this;
     var board = new PinterestClone.Models.Board({ id: id });
     board.fetch({
       success: function() {
-        var view = new PinterestClone.Views.BoardShow({ 
+        var view = new PinterestClone.Views.BoardShow({
           model: board,
           type: type
         });
@@ -59,7 +59,7 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
     var user = new PinterestClone.Models.User({ id: id });
     user.fetch({
       success: function() {
-        var view = new PinterestClone.Views.UserShow({ 
+        var view = new PinterestClone.Views.UserShow({
           model: user,
           type: type
         });
