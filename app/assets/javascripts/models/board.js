@@ -1,8 +1,8 @@
 PinterestClone.Models.Board = Backbone.Model.extend({
   urlRoot: "/api/boards",
-  
+
   parse: function(board) {
-  	var user = board.user;
+    var user = board.user;
     var pins = board.pins;
 
     board.user = new PinterestClone.Models.User(user, { parse: true });
