@@ -5,10 +5,12 @@ PinterestClone.Views.PinShow = Backbone.View.extend({
   },
 
   events: {
+    "hidden": "hide",
     "click #pin-add-button": "add",
     "click #add-icon": "add",
     "click #pin-edit-button": "edit",
-    "click #edit-icon": "edit"
+    "click #edit-icon": "edit",
+    "click a#board": "board"
   },
 
   template: JST["pins/show"],
@@ -54,5 +56,17 @@ PinterestClone.Views.PinShow = Backbone.View.extend({
     $(".modal-content").empty();
     $(".modal-content").append(formView.render().$el);
     $("#modal").modal("show");
+  },
+
+  board: function(event) {
+    event.preventDefault();
+    $("#modal").modal("hide");
+    $(".modal-backdrop").remove();
+    Backbone.history.navigate("#/users/" + this.model.get("user_id") + "/boards/" + this.model.get("board_id"), { trigger: true });
+  },
+
+  hide: function(event) {
+    event.preventDefault();
+    debugger;
   }
 });
