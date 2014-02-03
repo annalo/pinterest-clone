@@ -18,25 +18,25 @@
   <form id="sign-in-form" action="<%= session_url %>" method="POST">
 
     <div class="col-sm-4 col-sm-offset-4">
-      <input 
-        type="hidden" 
-        name="authenticity_token" 
+      <input
+        type="hidden"
+        name="authenticity_token"
         value="<%= form_authenticity_token %>">
-  
+
       <div class="form-group">
         <input
           class="form-control"
-          type="email" 
-          id="email" 
+          type="email"
+          id="email"
           name="user[email]"
           placeholder="Email">
       </div>
-    
+
       <div class="form-group">
-        <input 
+        <input
           class="form-control"
-          type="password" 
-          id="password" 
+          type="password"
+          id="password"
           name="user[password]"
           placeholder="Password">
       </div>
@@ -68,7 +68,7 @@
       highlight: function(element, errorClass, validClass) {
         $(".form-group").addClass("has-error");
       },
-      
+
       unhighlight: function(element, errorClass, validClass) {
         $(".form-group").removeClass("has-error");
     }

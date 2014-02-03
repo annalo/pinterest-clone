@@ -1,80 +1,80 @@
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="header">  
-	<div class="container">
-		<div class="navbar-header">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="header">
+  <div class="container">
+    <div class="navbar-header">
 
-	    <a class="navbar-brand">
-	      <a class="navbar-brand" href="/">
-	        C <i class="fa fa-circle"></i> RKBOARD
-	      </a>
-	    </a>
-	  </div>
-	</div>
+      <a class="navbar-brand">
+        <a class="navbar-brand" href="/">
+          C <i class="fa fa-circle"></i> RKBOARD
+        </a>
+      </a>
+    </div>
+  </div>
 </div>
 
 
 <div id="headerwrap">
-	<div id="layer">
-		<div class="row centered">
-			<div class="container">
+  <div id="layer">
+    <div class="row centered">
+      <div class="container">
 
-			<div class="col-lg-8 col-lg-offset-2">
-			  <h1>Save all the stuff you <b>love</b>!!</h1>
-			  
-			  <p style="margin-top:30px; margin-bottom:30px;">
-			  <a class="btn btn-primary" 
-			     href="<%= new_user_url %>" 
-			     role="button">Sign Up</a>
-			  </p>
-			  
-			  <h4 style="color: white"><b>
-				  Already have an account? <%= link_to "Log in now", new_session_url, :class => "img-text" %>
-				  <br>
-				  Or sign in as a <b><a href="#" id="example-sign-in" class="img-text">GUEST</a></b>
-			  </b></h4>
-		  </div>
-	  </div>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h1>Save all the stuff you <b>love</b>!!</h1>
+
+        <p style="margin-top:30px; margin-bottom:30px;">
+        <a class="btn btn-primary"
+           href="<%= new_user_url %>"
+           role="button">Sign Up</a>
+        </p>
+
+        <h4 style="color: white"><b>
+          Already have an account? <%= link_to "Log in now", new_session_url, :class => "img-text" %>
+          <br>
+          Or sign in as a <b><a href="#" id="example-sign-in" class="img-text">GUEST</a></b>
+        </b></h4>
+      </div>
+    </div>
   </div>
 </div>
 </div>
 
 <div class="container w">
-	<div class="row centered">
-		<br><br>
-		<div class="col-lg-4 col-lg-offset-2">
-			<i class="fa fa-thumb-tack"></i>
-			<h4>PIN</h4>
-			<p>Pin your favorite stuff (recipes! articles! travel ideas!) right here on Corkboard.</p>
-		</div><!-- col-lg-4 -->
+  <div class="row centered">
+    <br><br>
+    <div class="col-lg-4 col-lg-offset-2">
+      <i class="fa fa-thumb-tack"></i>
+      <h4>PIN</h4>
+      <p>Pin your favorite stuff (recipes! articles! travel ideas!) right here on Corkboard.</p>
+    </div><!-- col-lg-4 -->
 
-		<div class="col-lg-4">
-			<i class="fa fa-laptop"></i>
-			<h4>BROWSE</h4>
-			<p>Browse users' boards and pins - save and search for what you like.</p>
-		</div><!-- col-lg-4 -->
-	</div><!-- row -->
-	<br>
-	<br>
+    <div class="col-lg-4">
+      <i class="fa fa-laptop"></i>
+      <h4>BROWSE</h4>
+      <p>Browse users' boards and pins - save and search for what you like.</p>
+    </div><!-- col-lg-4 -->
+  </div><!-- row -->
+  <br>
+  <br>
 </div><!-- container -->
 
 
 <!-- example account login -->
 <form id="sign-in-form" action="<%= session_url %>" method="POST">
-  <input 
-    type="hidden" 
-    name="authenticity_token" 
+  <input
+    type="hidden"
+    name="authenticity_token"
     value="<%= form_authenticity_token %>">
 
     <input
       class="form-control"
-      type="hidden" 
-      id="email" 
+      type="hidden"
+      id="email"
       name="user[email]"
       value="amanda@email.com">
 
-    <input 
+    <input
       class="form-control"
-      type="hidden" 
-      id="password" 
+      type="hidden"
+      id="password"
       name="user[password]"
       value="password">
 </form>
@@ -82,9 +82,9 @@
 <div class="bottom-section"></div>
 
 <script>
-	$("#example-sign-in").click(function(event) {
-		debugger;
-		event.preventDefault();
-		$("#sign-in-form").trigger("submit");
-	})
+  $("#example-sign-in").click(function(event) {
+    debugger;
+    event.preventDefault();
+    $("#sign-in-form").trigger("submit");
+  })
 </script>
