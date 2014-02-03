@@ -1,46 +1,36 @@
-
-<div class="container" style="padding-top: 7px">
-  <ul id="show-tile">
-    <li>
-      <!-- pin img -->
-      <% if(pin.escape("url") !== null && pin.escape("url") !== "") { %>
-      <a href="<%= pin.escape("url") %>" onclick="window.open(this.href); return false;">
-      <% } %>
-
-        <img src="<%= pin.escape("img") %>" class="img-responsive">
-
-      <% if(pin.escape("url") !== null && pin.escape("url") !== "") { %>
-      </a>
-      <% } %>
-
-
-      <p><%= pin.escape("description") %></p>
-
-      <!-- check for current_user -->
-      <% if(pin.get("pinned")) { %>
-        <!-- edit pin button -->
-        <button type="button" class="btn btn-default" id="pin-edit-button" data-id="<%= pin.id %>">
-          <span class="glyphicon glyphicon-pencil" id="edit-icon" data-id="<%= pin.id %>"></span>
-        </button>
-      <% } else { %>
-        <!-- add pin button -->
-        <button type="button" class="btn btn-default" id="pin-add-button" data-id="<%= pin.id %>" style="background: transparent; padding-top: 2px; padding-bottom: 2px; float: right">
-          <span class="glyphicon glyphicon-pushpin" id="add-icon" data-id="<%= pin.id %>"></span>
-        </button>
-      <% } %>
-
-    </li>
-  </ul>
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  <h4 align="center"><%= pin.escape("description") %></h4>
 </div>
 
 
-<script>
-$(document).imagesLoaded(function() {
-  // Call the layout function.
-  $('#show-tile li').wookmark({
-    align: "center",
-    autoResize: true, // This will auto-update the layout when the browser window is resized.
-    container: $('#show-tile'), // Optional, used for some extra CSS styling
-  });
-});
-</script>
+<div class="modal-body">
+
+  <img id="show-pin-img" src='<%= pin.escape("img") %>' class="img-responsive">
+
+</div>
+
+<div class="modal-footer" style="text-align: center">
+
+  <!-- check for current_user -->
+  <% if(pin.get("pinned")) { %>
+    <!-- edit pin button -->
+    <div class="tilt"><button type="button" class="btn btn-default" id="pin-edit-button" data-id="<%= pin.id %>">
+      <span class="glyphicon glyphicon-pencil" id="edit-icon" data-id="<%= pin.id %>"></span>
+    </button></div>
+  <% } else { %>
+    <!-- add pin button -->
+    <div class="tilt"><button type="button" class="btn btn-default" id="pin-add-button" data-id="<%= pin.id %>" style="background: transparent; padding-top: 2px; padding-bottom: 2px; float: right">
+      <span class="glyphicon glyphicon-pushpin" id="add-icon" data-id="<%= pin.id %>"></span>
+    </button></div>
+  <% } %>
+
+  <!-- user info/link -->
+  <a href="#/users/<%= pin.escape('user_id') %>/boards/<%= pin.escape('board_id') %>">
+    <div id="user-info">
+      <b><%= pin.escape("user_fname") %> <%= pin.escape("user_lname") %></b><br>
+      <%= pin.escape("board_name") %>
+    </div>
+  </a>
+</div>
+

@@ -4,12 +4,10 @@
   <% pins.each(function(pin) { %>
     <li>
       <!-- pin img -->
-      <a href="#/pins/<%= pin.id %>">
+      <a href="#" id="pin" data-id="<%= pin.id %>">
         <img src="<%= pin.escape("img") %>" class="img-responsive">
       </a>
       <p><%= pin.escape("description") %></p>
-
-
 
       <!-- check for current_user -->
       <% if(pin.get("pinned")) { %>
@@ -22,15 +20,15 @@
         <div class="tilt"><button type="button" class="btn btn-default" id="pin-add-button" data-id="<%= pin.id %>" style="background: transparent; padding-top: 2px; padding-bottom: 2px; float: right">
           <span class="glyphicon glyphicon-pushpin" id="add-icon" data-id="<%= pin.id %>"></span>
         </button></div>
-
-        <!-- user info/link -->
-        <a href="#/users/<%= pin.escape('user_id') %>/boards/<%= pin.escape('board_id') %>">
-          <div id="user-info">
-            <b><%= pin.escape("user_fname") %> <%= pin.escape("user_lname") %></b><br>
-            <%= pin.escape("board_name") %>
-          </div>
-        </a>
       <% } %>
+
+      <!-- user info/link -->
+      <a href="#/users/<%= pin.escape('user_id') %>/boards/<%= pin.escape('board_id') %>">
+        <div id="user-info">
+          <b><%= pin.escape("user_fname") %> <%= pin.escape("user_lname") %></b><br>
+          <%= pin.escape("board_name") %>
+        </div>
+      </a>
 
     </li>
 

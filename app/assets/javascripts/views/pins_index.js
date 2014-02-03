@@ -10,6 +10,7 @@ PinterestClone.Views.PinsIndex = Backbone.View.extend({
     "click #add-icon": "add",
     "click #pin-edit-button": "edit",
     "click #edit-icon": "edit",
+    "click a#pin": "show",
     "click #pin-board": "submit"
   },
 
@@ -51,6 +52,19 @@ PinterestClone.Views.PinsIndex = Backbone.View.extend({
 
     $(".modal-content").html(view.render().$el);
     $("#modal").modal("show");
+  },
+
+  // show pin
+  show: function(event) {
+    event.preventDefault();
+    var pinId = $(event.currentTarget).data("id");
+    var pin = this.collection.get(pinId);
+
+    var view = new PinterestClone.Views.PinShow({ model: pin });
+
+    $(".modal-content").empty();
+    $(".modal-content").append(view.render().$el);
+    $("#modal").modal("toggle");
   },
 
   // change submit

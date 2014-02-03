@@ -51,7 +51,10 @@ PinterestClone.Routers.Router = Backbone.Router.extend({
       model: pin,
       type: type
     });
-    this._swapView(view);
+
+    $(".modal-content").empty();
+    $(".modal-content").append(view.render().$el);
+    $("#modal").modal("toggle");
   },
 
   showUser: function(id, type) {

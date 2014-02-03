@@ -13,4 +13,3 @@ json.array!(@boards_pins) do |boards_pin|
   json.user_fname boards_pin.board.user.fname
   json.user_lname boards_pin.board.user.lname
 end
-
