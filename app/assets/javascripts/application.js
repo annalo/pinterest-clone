@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.validate
+//= require jquery.infinitescroll.min
 //= require additional-methods
 //= require underscore
 //= require backbone
