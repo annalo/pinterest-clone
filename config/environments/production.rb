@@ -24,7 +24,7 @@ PinterestClone::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-  
+
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
@@ -34,5 +34,7 @@ PinterestClone::Application.configure do
       :s3_host_name => 's3-us-west-1.amazonaws.com' # or whatever your region host name is
     }
   }
+
+  config.logger = Logger.new(STDOUT)
 
 end
