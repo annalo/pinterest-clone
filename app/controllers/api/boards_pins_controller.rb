@@ -28,7 +28,6 @@ class Api::BoardsPinsController < ApplicationController
   end
 
   def update
-
     @boards_pin = BoardsPin.find(params[:id])
     if @boards_pin.update_attributes(params[:boards_pin])
       render "show"
