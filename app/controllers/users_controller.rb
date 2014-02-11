@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   before_filter :require_no_current_user!, :only => [:create, :new]
-  
+
   def index
-    @users = User.all
+    @users = User.include(:boards)
   end
-  
+
   def create
     @user = User.new(params[:user])
-    
+
     if @user.save
       self.current_user = @user
       redirect_to root_url
@@ -15,16 +15,16 @@ class UsersController < ApplicationController
       render :json => @user.errors.full_messages
     end
   end
-  
+
   def new
     @user = User.new
   end
-  
+
   def show
     if params.include?(:id)
-      @user = User.find(params[:id])
+      @user = User.includes(:boards, :pins, :boards_pins).find(params[:id])
       @boards_pins = users_pins(@user)
-      
+
       respond_to do |format|
         format.json { render "show" }
       end

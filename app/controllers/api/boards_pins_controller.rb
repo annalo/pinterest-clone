@@ -2,7 +2,7 @@ class Api::BoardsPinsController < ApplicationController
   before_filter :require_current_user!
 
   def index
-    @boards_pins = BoardsPin.all
+    @boards_pins = BoardsPin.includes([{:board => :user}, :pin])
     render "index"
   end
 
@@ -35,7 +35,7 @@ class Api::BoardsPinsController < ApplicationController
       render :json => @boards_pin.errors.full_messages
     end
   end
-  
+
   def destroy
     @boards_pin = BoardsPin.find(params[:id])
     @boards_pin.destroy

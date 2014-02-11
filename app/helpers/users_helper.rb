@@ -4,7 +4,7 @@ module UsersHelper
   end
 
   def users_pins(user)
-    boards = user.boards
+    boards = user.boards.includes(:boards_pins, :pins)
     pins = []
 
     boards.each do |board|
