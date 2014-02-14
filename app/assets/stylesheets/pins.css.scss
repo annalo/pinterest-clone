@@ -24,12 +24,10 @@
   text-align: center;
 }
 
-#pin-edit-button {
-  background: transparent;
-  padding-top: 2px;
-  padding-bottom: 2px;
+.pin-button {
   float: right;
   bottom: 0px;
+  border: none;
 }
 
 #show-pin-img {

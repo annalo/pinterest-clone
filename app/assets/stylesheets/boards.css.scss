@@ -8,7 +8,7 @@
   font-weight: bold;
   text-shadow: 0 1px 1px #ffffff;
   width: 236px;
-  height: 284px;
+  height: 279px;
 
   a {
     font-size: 18px;
@@ -26,7 +26,6 @@
   padding: 0;
   position: relative;
   list-style-type: none;
-  margin: 0 10px 0 10px;
   border-radius: 3px;
 
   p {
@@ -38,12 +37,12 @@
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
   width: 236px;
   display: none;
-  padding-bottom: 7px;
   text-align: center;
 }
 
 #board-edit-button {
   width: 222px;
+  border: none;
 }
 
 .board-cover {
