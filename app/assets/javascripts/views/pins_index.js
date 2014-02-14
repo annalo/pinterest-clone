@@ -86,6 +86,5 @@ PinterestClone.Views.PinsIndex = Backbone.View.extend({
 
   new: function(event) {
     event.preventDefault();
-
   }
 });
