@@ -11,7 +11,8 @@ PinterestClone.Views.PinsIndex = Backbone.View.extend({
     "click #pin-edit-button": "edit",
     "click #edit-icon": "edit",
     "click a#pin": "show",
-    "click #pin-board": "submit"
+    "click #pin-board": "submit",
+    "click #new-pin": "new"
   },
 
   render: function() {
@@ -81,5 +82,10 @@ PinterestClone.Views.PinsIndex = Backbone.View.extend({
         Backbone.history.navigate("#/users/" + model.get("user_id"), { trigger: true });
       }
     });
+  },
+
+  new: function(event) {
+    event.preventDefault();
+
   }
 });
