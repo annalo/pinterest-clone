@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def show
     if params.include?(:id)
-      @user = User.includes(:boards, :pins, :boards_pins).find(params[:id])
+      @user = User.includes({:boards => :pins}, :pins, :boards_pins).find(params[:id])
       @boards_pins = users_pins(@user)
 
       respond_to do |format|

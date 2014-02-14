@@ -6,6 +6,9 @@ json.pin_count @user.pins.length
 json.boards @user.boards do |board|
   json.(board, :id, :name, :description, :user_id)
   json.owned owned?(board)
+  json.pins board.pins do |pin|
+    json.(pin, :img)
+  end
 end
 
 json.pins @boards_pins do |boards_pin|

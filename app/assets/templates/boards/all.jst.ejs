@@ -1,21 +1,23 @@
 <div class="container-fluid" style="padding-top: 7px">
-<ul id="board-tiles">
-  <% boards.each(function(board) { %>
-    <!-- will not display current users boards -->
-    <% if(!board.get("owned")) { %>
-      <li>
-        <a href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>">
-          <!-- board caption / img -->
-          <div class="caption">
-            <h5><%= board.escape("name") %></h5>
-          </div>
-          <div style="height: 211px">
-            <img data-src="" alt="..." class="img-responsive">
-          </div>
-        </a>
-    </li>
-    <% } %>
-
+  <ul id="board-tiles">
+    <% boards.each(function(board) { %>
+      <!-- will not display current users boards -->
+      <% if(!board.get("owned")) { %>
+        <li>
+          <a href="#/users/<%= board.escape("user_id") %>/boards/<%= board.id %>">
+            <!-- board caption / img -->
+            <div class="caption">
+              <h5><%= board.escape("name") %></h5>
+            </div>
+            <div class="board-cover">
+              <!-- insert image -->
+                <% if(board.get("pins").length > 0) { %>
+                  <img src='<%= board.get("pins").models[0].get("img") %>' class="img-responsive">
+                <% } %>
+            </div>
+          </a>
+      </li>
+      <% } %>
     <% }); %>
   </ul>
 </div>
