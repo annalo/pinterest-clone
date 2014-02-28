@@ -15,12 +15,12 @@
   <!-- check for current_user -->
   <% if(pin.get("pinned")) { %>
     <!-- edit pin button -->
-    <button type="button" class="btn btn-default" id="pin-edit-button" data-id="<%= pin.id %>">
+    <button type="button" class="btn btn-default" id="pin-show-button" data-id="<%= pin.id %>">
       <span class="glyphicon glyphicon-pencil" id="edit-icon" data-id="<%= pin.id %>"></span>
     </button>
   <% } else { %>
     <!-- add pin button -->
-    <button type="button" class="btn btn-default" id="pin-add-button" data-id="<%= pin.id %>" style="background: transparent; padding-top: 2px; padding-bottom: 2px; float: right">
+    <button type="button" class="btn btn-default" id="pin-show-button" data-id="<%= pin.id %>">
       <span class="glyphicon glyphicon-pushpin" id="add-icon" data-id="<%= pin.id %>"></span>
     </button>
   <% } %>
